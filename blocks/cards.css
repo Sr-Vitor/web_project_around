@@ -1,0 +1,106 @@
+.cards {
+  width: 880px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.cards__card {
+  width: 282px;
+  height: 361px;
+  background-color: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.cards__image {
+  width: 282px;
+  height: 282px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.cards__image:hover {
+  transform: scale(1.05); /* Aumenta a imagem 5% ao passar o mouse */
+  opacity: 0.9; /* Torna a imagem levemente opaca */
+}
+.cards__group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto 0.9rem auto 1.3rem;
+}
+
+.cards__title {
+  font-family: Inter;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.cards__like {
+  display: none;
+}
+
+.cards__like-icon {
+  width: 21px;
+  height: 19px;
+  background-image: url(../images/group.svg);
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: 0.4s ease-in-out;
+}
+.cards__like-icon:hover {
+  background-image: url(../images/images__button/like__active.png);
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  .cards {
+    width: 660px; /* Ajusta o contêiner para caber dois cartões por linha */
+    margin: auto;
+  }
+
+  .cards__card {
+    width: 282px;
+    height: 361px;
+  }
+
+  .cards__card:hover {
+    opacity: 0.6;
+  }
+  .cards__image {
+    width: 282px; /* Ajusta a imagem à largura do cartão */
+    height: 282px;
+  }
+}
+
+/* Estilos para dispositivos móveis: até 768px */
+@media (min-width: 320px) and (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 200px;
+  }
+
+  .cards__card {
+    width: 282px;
+    height: 361px;
+  }
+
+  .cards__image {
+    width: 282px; /* Ajusta a imagem à largura do cartão */
+    height: 282px;
+  }
+
+  .cards__title {
+    font-size: 1.25rem; /* Ajusta o tamanho da fonte para telas menores */
+  }
+}

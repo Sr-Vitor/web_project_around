@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Around The U.S</title>
+
+    <link rel="stylesheet" href="./pages/index.css" />
+    <meta name="author" content="Vitor Oliveira" />
+    <meta
+      content="Photography. United States. EUA. Trips. Cities"
+      name="description"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <img
+        src="images/Vector.png"
+        alt="An image of a text written Around the US"
+        class="header__logo"
+      />
+      <img
+        src="images/Line.png"
+        alt="line dividinng the title of the page from profiles name"
+        class="header__line"
+      />
+    </header>
+    <main class="main">
+      <section class="profile">
+        <img class="profile__avatar" src="./images/image.jpg" alt="profile" />
+        <div class="profile__info">
+          <h1 class="profile__name">Jacques Cousteau</h1>
+          <button class="profile__edit-button"></button>
+          <p class="profile__about">Explorer</p>
+        </div>
+        <button class="profile__add-button" type="button"></button>
+      </section>
+
+      <section class="cards">
+        <div class="cards__card">
+          <img class="cards__image" src="./images/image1.png" alt="image-1" />
+          <div class="cards__group">
+            <h2 class="cards__title">Minneapolis, MN</h2>
+            <div class="cards__like-icon"></div>
+          </div>
+        </div>
+        <div class="cards__card">
+          <img class="cards__image" src="../images/image2.png" alt="image-2" />
+          <div class="cards__group">
+            <h2 class="cards__title">Hollywood, C.A</h2>
+            <div class="cards__like-icon"></div>
+          </div>
+        </div>
+        <div class="cards__card">
+          <img class="cards__image" src="./images/image3.png" alt="image-3" />
+          <div class="cards__group">
+            <h2 class="cards__title">Golden Gate Bridge</h2>
+            <div class="cards__like-icon"></div>
+          </div>
+        </div>
+        <div class="cards__card">
+          <img class="cards__image" src="./images/image4.png" alt="image-4" />
+          <div class="cards__group">
+            <h2 class="cards__title">Las Vegas</h2>
+            <div class="cards__like-icon"></div>
+          </div>
+        </div>
+        <div class="cards__card">
+          <img class="cards__image" src="./images/image5.png" alt="image-5" />
+          <div class="cards__group">
+            <h2 class="cards__title">Miami</h2>
+            <div class="cards__like-icon"></div>
+          </div>
+        </div>
+        <div class="cards__card">
+          <img class="cards__image" src="./images/image6.png" alt="image-6" />
+          <div class="cards__group">
+            <h2 class="cards__title">New York</h2>
+            <div class="cards__like-icon"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <span class="footer__copyright"
+        >© 2023 Around The U.S. by Vitor Oliveira</span
+      >
+    </footer>
+    <section class="popup">
+      <form action="#" class="popup__container">
+        <h2 class="popup__title">Edit profile</h2>
+        <input
+          type="text"
+          class="popup__input popup__input_name"
+          placeholder="Name"
+        />
+        <input
+          type="text"
+          class="popup__input popup__input_about"
+          placeholder="About me"
+        />
+        <button class="popup__submit" type="submit">Save</button>
+        <button class="popup__close" type="button"></button>
+      </form>
+    </section>
+    <!-- <div class="popup" id="editProfilePopup">
+      <div class="popup__content">
+        <h2>Editar perfil</h2>
+        <input
+          class="popup__name"
+          type="text"
+          placeholder="Nome"
+          value="Jacques Cousteau"
+        />
+        <input
+          class="popup__about"
+          type="text"
+          placeholder="Profissão"
+          value="Explorador"
+        />
+        <button class="popup__save-button">Salvar</button>
+      </div>
+    </div> -->
+    <script src="./script/script.js"></script>
+  </body>
+</html>
