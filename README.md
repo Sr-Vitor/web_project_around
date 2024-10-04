@@ -60,4 +60,4 @@ Technologies Used
 
 	•	HTML5: For structuring the web page and providing the skeleton for the content.
 	•	CSS3: For styling, responsiveness, and adding transitions and hover effects.
-	•	JavaScript (Vanilla JS): For handling interactivity, DOM manipulation, and dynamic updates (like popup forms and the like system).
+	•	JavaScript (Vanilla JS): For handling interactivity, DOM manipulation, and dynamic updates (like popup forms and the like system)
