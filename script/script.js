@@ -1,24 +1,9 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   const addButton = document.querySelector(".profile__edit-button");
-//   const popup = document.querySelector(".pop__container");
-
-//   addButton.addEventListener("click", () => {
-//     popup.classList.add("show");
-//   });
-
-//   // Você pode adicionar funcionalidade para fechar o popup clicando fora dele
-//   popup.addEventListener("click", (event) => {
-//     if (event.target === popup) {
-//       popup.classList.remove("show");
-//     }
-//   });
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
-  // Popup de Edição de Perfil
+  // Seleção de elementos
   const addButton = document.querySelector(".profile__edit-button"); // Botão para abrir o popup
   const popup = document.querySelector(".popup"); // Elemento do popup
   const closeButton = document.querySelector(".popup__close"); // Botão de fechar o popup
+  const saveButton = document.querySelector(".popup__submit"); // Botão de salvar as alterações
 
   // Elementos do perfil
   const profileName = document.querySelector(".profile__name"); // Nome no perfil
@@ -35,31 +20,23 @@ document.addEventListener("DOMContentLoaded", () => {
     popupAboutInput.value = profileAbout.textContent; // Define a descrição no input
 
     // Abrir o popup
-    popup.classList.add("popup_opened"); // Adiciona a classe que exibe o popup
+    popup.classList.add("popup_opened");
   });
 
   // Função para fechar o popup
   closeButton.addEventListener("click", () => {
-    popup.classList.remove("popup_opened"); // Remove a classe para esconder o popup
+    popup.classList.remove("popup_opened");
   });
 
-  // Removido o fechamento ao clicar fora do popup
-  // Agora o popup só fecha ao clicar no botão de fechar
-  // Controle dos Ícones de Curtida
-  const likeIcons = document.querySelectorAll(".cards__like-icon");
+  // Função para salvar as alterações e atualizar o perfil
+  saveButton.addEventListener("click", (event) => {
+    event.preventDefault(); // Prevenir o comportamento padrão do botão de submit (recarregar a página)
 
-  likeIcons.forEach((icon) => {
-    icon.addEventListener("click", () => {
-      const isLiked = icon.classList.contains("liked");
+    // Atualizar o nome e a descrição do perfil com os valores dos inputs
+    profileName.textContent = popupNameInput.value;
+    profileAbout.textContent = popupAboutInput.value;
 
-      if (isLiked) {
-        icon.classList.remove("liked");
-        icon.style.backgroundImage = "url(../images/group.svg)"; // Ícone descurtido
-      } else {
-        icon.classList.add("liked");
-        icon.style.backgroundImage =
-          "url(../images/images__button/like__active.png)"; // Ícone curtido
-      }
-    });
+    // Fechar o popup após salvar
+    popup.classList.remove("popup_opened");
   });
 });

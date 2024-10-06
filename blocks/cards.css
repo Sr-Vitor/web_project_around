@@ -91,13 +91,13 @@
   }
 
   .cards__card {
-    width: 282px;
+    width: 300px;
     height: 361px;
   }
 
   .cards__image {
-    width: 282px; /* Ajusta a imagem à largura do cartão */
-    height: 282px;
+    width: 300px; /* Ajusta a imagem à largura do cartão */
+    height: 300px;
   }
 
   .cards__title {
