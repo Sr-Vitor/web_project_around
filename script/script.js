@@ -1,42 +1,152 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Seleção de elementos
-  const addButton = document.querySelector(".profile__edit-button"); // Botão para abrir o popup
-  const popup = document.querySelector(".popup"); // Elemento do popup
-  const closeButton = document.querySelector(".popup__close"); // Botão de fechar o popup
-  const saveButton = document.querySelector(".popup__submit"); // Botão de salvar as alterações
+  // Seleção de elementos para edição de perfil
+  const editButton = document.querySelector(".profile__edit-button");
+  const editPopup = document.querySelector(".popup");
+  const closeEditPopupButton = editPopup.querySelector(".popup__close");
+  const saveButton = editPopup.querySelector(".popup__submit");
 
   // Elementos do perfil
-  const profileName = document.querySelector(".profile__name"); // Nome no perfil
-  const profileAbout = document.querySelector(".profile__about"); // Descrição no perfil
+  const profileName = document.querySelector(".profile__name");
+  const profileAbout = document.querySelector(".profile__about");
 
-  // Inputs do popup
-  const popupNameInput = document.querySelector(".popup__input_name"); // Input do nome no popup
-  const popupAboutInput = document.querySelector(".popup__input_about"); // Input da descrição no popup
+  // Inputs do popup de edição
+  const popupNameInput = document.querySelector(".popup__input_name");
+  const popupAboutInput = document.querySelector(".popup__input_about");
 
-  // Função para abrir o popup e preencher os inputs
-  addButton.addEventListener("click", () => {
-    // Preencher os inputs do popup com os valores do perfil
-    popupNameInput.value = profileName.textContent; // Define o nome no input
-    popupAboutInput.value = profileAbout.textContent; // Define a descrição no input
-
-    // Abrir o popup
-    popup.classList.add("popup_opened");
+  // Função para abrir o popup de edição e preencher os inputs com valores atuais
+  editButton.addEventListener("click", () => {
+    popupNameInput.value = profileName.textContent;
+    popupAboutInput.value = profileAbout.textContent;
+    editPopup.classList.add("popup_opened");
   });
 
-  // Função para fechar o popup
-  closeButton.addEventListener("click", () => {
-    popup.classList.remove("popup_opened");
+  // Função para fechar o popup de edição
+  closeEditPopupButton.addEventListener("click", () => {
+    editPopup.classList.remove("popup_opened");
   });
 
-  // Função para salvar as alterações e atualizar o perfil
+  // Função para salvar as alterações de perfil
   saveButton.addEventListener("click", (event) => {
-    event.preventDefault(); // Prevenir o comportamento padrão do botão de submit (recarregar a página)
-
-    // Atualizar o nome e a descrição do perfil com os valores dos inputs
+    event.preventDefault();
     profileName.textContent = popupNameInput.value;
     profileAbout.textContent = popupAboutInput.value;
-
-    // Fechar o popup após salvar
-    popup.classList.remove("popup_opened");
+    editPopup.classList.remove("popup_opened");
   });
+
+  // Seleção de elementos para adicionar novo local
+  const addButton = document.querySelector(".profile__add-button");
+  const addPopup = document.querySelector(".popup_add");
+  const closeAddPopupButton = addPopup.querySelector(".popup__close");
+  const createButton = addPopup.querySelector(".popup__submit");
+
+  // Inputs do popup de adição
+  const titleInput = addPopup.querySelector(".popup__input_title");
+  const imageLinkInput = addPopup.querySelector(".popup__input_image-link");
+
+  // Função para abrir o popup de adicionar local
+  addButton.addEventListener("click", () => {
+    addPopup.classList.add("popup_add_opened");
+  });
+
+  // Função para fechar o popup de adicionar local
+  closeAddPopupButton.addEventListener("click", () => {
+    addPopup.classList.remove("popup_add_opened");
+  });
+
+  // Lógica para adicionar novo local ao clicar em "Criar"
+  createButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    const title = titleInput.value.trim();
+    const imageLink = imageLinkInput.value.trim();
+
+    if (title && imageLink) {
+      addNewLocationCard(title, imageLink);
+      titleInput.value = "";
+      imageLinkInput.value = "";
+      addPopup.classList.remove("popup_add_opened");
+    }
+  });
+
+  // Função para adicionar o novo card na seção de cards, incluindo o ícone de exclusão
+  function addNewLocationCard(title, imageLink) {
+    const cardsContainer = document.querySelector(".cards");
+
+    const newCard = document.createElement("div");
+    newCard.classList.add("cards__card");
+
+    newCard.innerHTML = `
+        <img class="cards__image" src="${imageLink}" alt="${title}" />
+        <button class="cards__trash" title="Excluir cartão">
+          <img src="./images/images__button/trash.svg" alt="Excluir" />
+        </button>
+        <div class="cards__group">
+          <h2 class="cards__title">${title}</h2>
+          <div class="cards__like-icon"></div>
+        </div>
+      `;
+
+    // Adicionando evento de exclusão para o botão de lixeira
+    const deleteButton = newCard.querySelector(".cards__trash");
+    deleteButton.addEventListener("click", () => {
+      newCard.remove();
+    });
+
+    // Adicionando evento para abrir a imagem em tamanho grande ao clicar
+    const cardImage = newCard.querySelector(".cards__image");
+    cardImage.addEventListener("click", () => openImagePopup(imageLink, title));
+
+    cardsContainer.appendChild(newCard);
+  }
+
+  // Função para aplicar a funcionalidade de exclusão e ampliação aos cartões existentes
+  function applyCardFunctionsToExistingCards() {
+    const existingCards = document.querySelectorAll(".cards__card");
+
+    existingCards.forEach((card) => {
+      const deleteButton = card.querySelector(".cards__trash");
+      const cardImage = card.querySelector(".cards__image");
+
+      // Adiciona funcionalidade de exclusão, se ainda não estiver aplicada
+      if (deleteButton) {
+        deleteButton.addEventListener("click", () => {
+          card.remove();
+        });
+      }
+
+      // Adiciona funcionalidade de abrir a imagem em tamanho grande
+      if (cardImage) {
+        const imageSrc = cardImage.getAttribute("src");
+        const title = card.querySelector(".cards__title").textContent;
+        cardImage.addEventListener("click", () =>
+          openImagePopup(imageSrc, title)
+        );
+      }
+    });
+  }
+
+  // Função para abrir o popup de visualização da imagem em tamanho grande
+  function openImagePopup(imageSrc, title) {
+    const imagePopup = document.createElement("div");
+    imagePopup.classList.add("popup", "popup_opened");
+
+    imagePopup.innerHTML = `
+        <div class="popup__container popup__container_large">
+          <button class="popup__close"></button>
+          <img src="${imageSrc}" alt="${title}" class="popup__image-large" />
+          <h2 class="popup__title">${title}</h2>
+        </div>
+      `;
+
+    // Evento para fechar o popup ao clicar no botão de fechar
+    const closeButton = imagePopup.querySelector(".popup__close");
+    closeButton.addEventListener("click", () => {
+      imagePopup.classList.remove("popup_opened");
+      imagePopup.remove();
+    });
+
+    document.body.appendChild(imagePopup);
+  }
+
+  // Aplica as funcionalidades aos cartões já existentes
+  applyCardFunctionsToExistingCards();
 });

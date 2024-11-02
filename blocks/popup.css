@@ -1,15 +1,19 @@
+/* Garantindo que o popup fique acima dos ícones de lixeira */
 .popup {
-  display: none;
-}
-.popup_opened {
-  display: block;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  box-sizing: border-box;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro para foco */
+  display: none; /* Oculto por padrão */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Z-index alto para estar acima de outros elementos */
+}
+
+.popup_opened {
+  display: flex; /* Mostra o popup quando a classe popup_opened é adicionada */
 }
 .popup__container {
   width: 26.875rem;
@@ -74,6 +78,32 @@
 .popup__close:hover {
   opacity: 0.6;
 }
+
+/* Popup para visualização de imagem em tamanho grande */
+.popup__container_large {
+  max-width: 80vw;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.popup__image-large {
+  max-width: 100%;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  margin-bottom: 10px;
+}
+/* Abaixo é para o popup de adicionar cartões */
+
+/* Popup de adicionar novo local */
 
 @media screen and (max-width: 992px) {
   .popup__container {
