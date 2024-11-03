@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
 
-    // Adicionando evento de exclusão para o botão de lixeira
+    // Adicionando evento de exclusão para o botão de lixeira do novo cartão
     const deleteButton = newCard.querySelector(".cards__trash");
     deleteButton.addEventListener("click", () => {
       newCard.remove();
@@ -107,19 +107,21 @@ document.addEventListener("DOMContentLoaded", () => {
       const cardImage = card.querySelector(".cards__image");
 
       // Adiciona funcionalidade de exclusão, se ainda não estiver aplicada
-      if (deleteButton) {
+      if (deleteButton && !deleteButton.hasAttribute("data-event-attached")) {
         deleteButton.addEventListener("click", () => {
           card.remove();
         });
+        deleteButton.setAttribute("data-event-attached", "true");
       }
 
       // Adiciona funcionalidade de abrir a imagem em tamanho grande
-      if (cardImage) {
+      if (cardImage && !cardImage.hasAttribute("data-event-attached")) {
         const imageSrc = cardImage.getAttribute("src");
         const title = card.querySelector(".cards__title").textContent;
         cardImage.addEventListener("click", () =>
           openImagePopup(imageSrc, title)
         );
+        cardImage.setAttribute("data-event-attached", "true");
       }
     });
   }
