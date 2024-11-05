@@ -132,12 +132,12 @@ document.addEventListener("DOMContentLoaded", () => {
     imagePopup.classList.add("popup", "popup_opened");
 
     imagePopup.innerHTML = `
-        <div class="popup__container popup__container_large">
-          <button class="popup__close"></button>
-          <img src="${imageSrc}" alt="${title}" class="popup__image-large" />
-          <h2 class="popup__title">${title}</h2>
-        </div>
-      `;
+    <div class="popup__container popup__container_large">
+      <button class="popup__close"></button>
+      <img src="${imageSrc}" alt="${title}" class="popup__image-large" />
+      <h2 class="popup__title">${title}</h2>
+    </div>
+  `;
 
     // Evento para fechar o popup ao clicar no botão de fechar
     const closeButton = imagePopup.querySelector(".popup__close");

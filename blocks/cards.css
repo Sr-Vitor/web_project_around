@@ -11,11 +11,11 @@
 .cards__card {
   position: relative;
   width: 282px;
-  height: 361px;
+  height: 370px;
   background-color: #fff;
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para todos os cartões */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
 }
@@ -23,12 +23,14 @@
 /* Estilo da imagem do cartão para cobrir completamente o topo */
 .cards__image {
   width: 100%;
-  height: 100%; /* Garante que a imagem preencha o contêiner */
+  max-height: 100%;
   max-height: 282px; /* Define uma altura máxima para a imagem */
-  object-fit: cover; /* Faz com que a imagem cubra totalmente o contêiner */
+  /* Faz com que a imagem cubra totalmente o contêiner */
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   display: block;
+  padding: 0;
+  margin: 0;
 }
 
 .cards__image:hover {
@@ -72,21 +74,23 @@
 
 .cards__trash {
   position: absolute;
-  top: 10px;
+  top: 20px;
   right: 10px;
   width: 24px; /* Tamanho consistente */
   height: 24px;
   background: none; /* Remove qualquer fundo extra */
   border: none; /* Remove borda extra */
-  padding: 0;
+  padding-top: 0;
   cursor: pointer;
-  z-index: 1;
+  z-index: 15;
+  margin: 0;
 }
 
 .cards__trash img {
-  width: 100%; /* Ajusta a imagem ao tamanho do botão */
+  width: 100%;
   height: 100%;
   display: block;
+  padding: 0;
 }
 .cards__trash:hover {
   opacity: 0.5;
