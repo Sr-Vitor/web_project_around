@@ -1,7 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Seleção de elementos para edição de perfil
+  // Array de objetos representando os cartões iniciais
+  const cardsData = [
+    { title: "Minneapolis, MN", imageLink: "./images/image1.jpeg" },
+    { title: "Hollywood, CA", imageLink: "./images/image2.jpeg" },
+    { title: "Golden Gate Bridge", imageLink: "./images/image3.jpeg" },
+    { title: "Las Vegas", imageLink: "./images/image4.jpeg" },
+    { title: "Miami", imageLink: "./images/image5.jpeg" },
+    { title: "New York", imageLink: "./images/image6.jpeg" },
+  ];
+
+  // Seleção de elementos para o popup de editar perfil
   const editButton = document.querySelector(".profile__edit-button");
-  const editPopup = document.querySelector(".popup");
+  const editPopup = document.querySelector(".popup"); // Popup de edição de perfil
   const closeEditPopupButton = editPopup.querySelector(".popup__close");
   const saveButton = editPopup.querySelector(".popup__submit");
 
@@ -9,18 +19,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const profileName = document.querySelector(".profile__name");
   const profileAbout = document.querySelector(".profile__about");
 
-  // Inputs do popup de edição
+  // Inputs do popup de edição de perfil
   const popupNameInput = document.querySelector(".popup__input_name");
   const popupAboutInput = document.querySelector(".popup__input_about");
 
-  // Função para abrir o popup de edição e preencher os inputs com valores atuais
+  // Função para abrir o popup de edição de perfil e preencher os inputs com valores atuais
   editButton.addEventListener("click", () => {
     popupNameInput.value = profileName.textContent;
     popupAboutInput.value = profileAbout.textContent;
     editPopup.classList.add("popup_opened");
   });
 
-  // Função para fechar o popup de edição
+  // Função para fechar o popup de edição de perfil
   closeEditPopupButton.addEventListener("click", () => {
     editPopup.classList.remove("popup_opened");
   });
@@ -33,27 +43,27 @@ document.addEventListener("DOMContentLoaded", () => {
     editPopup.classList.remove("popup_opened");
   });
 
-  // Seleção de elementos para adicionar novo local
+  // Seleção de elementos para o popup de adicionar novo cartão
   const addButton = document.querySelector(".profile__add-button");
-  const addPopup = document.querySelector(".popup_add");
+  const addPopup = document.querySelector(".popup_add"); // Popup de adição de cartão
   const closeAddPopupButton = addPopup.querySelector(".popup__close");
   const createButton = addPopup.querySelector(".popup__submit");
 
-  // Inputs do popup de adição
+  // Inputs do popup de adição de cartão
   const titleInput = addPopup.querySelector(".popup__input_title");
   const imageLinkInput = addPopup.querySelector(".popup__input_image-link");
 
-  // Função para abrir o popup de adicionar local
+  // Função para abrir o popup de adicionar novo cartão
   addButton.addEventListener("click", () => {
     addPopup.classList.add("popup_add_opened");
   });
 
-  // Função para fechar o popup de adicionar local
+  // Função para fechar o popup de adicionar novo cartão
   closeAddPopupButton.addEventListener("click", () => {
     addPopup.classList.remove("popup_add_opened");
   });
 
-  // Lógica para adicionar novo local ao clicar em "Criar"
+  // Lógica para adicionar novo cartão ao clicar em "Criar"
   createButton.addEventListener("click", (event) => {
     event.preventDefault();
     const title = titleInput.value.trim();
@@ -67,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Função para adicionar o novo card na seção de cards, incluindo o ícone de exclusão
+  // Função para adicionar o novo cartão na seção de cartões
   function addNewLocationCard(title, imageLink) {
     const cardsContainer = document.querySelector(".cards");
 
@@ -85,45 +95,17 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
 
-    // Adicionando evento de exclusão para o botão de lixeira do novo cartão
+    // Evento de exclusão do cartão
     const deleteButton = newCard.querySelector(".cards__trash");
     deleteButton.addEventListener("click", () => {
       newCard.remove();
     });
 
-    // Adicionando evento para abrir a imagem em tamanho grande ao clicar
+    // Evento para abrir a imagem em tamanho grande ao clicar
     const cardImage = newCard.querySelector(".cards__image");
     cardImage.addEventListener("click", () => openImagePopup(imageLink, title));
 
     cardsContainer.appendChild(newCard);
-  }
-
-  // Função para aplicar a funcionalidade de exclusão e ampliação aos cartões existentes
-  function applyCardFunctionsToExistingCards() {
-    const existingCards = document.querySelectorAll(".cards__card");
-
-    existingCards.forEach((card) => {
-      const deleteButton = card.querySelector(".cards__trash");
-      const cardImage = card.querySelector(".cards__image");
-
-      // Adiciona funcionalidade de exclusão, se ainda não estiver aplicada
-      if (deleteButton && !deleteButton.hasAttribute("data-event-attached")) {
-        deleteButton.addEventListener("click", () => {
-          card.remove();
-        });
-        deleteButton.setAttribute("data-event-attached", "true");
-      }
-
-      // Adiciona funcionalidade de abrir a imagem em tamanho grande
-      if (cardImage && !cardImage.hasAttribute("data-event-attached")) {
-        const imageSrc = cardImage.getAttribute("src");
-        const title = card.querySelector(".cards__title").textContent;
-        cardImage.addEventListener("click", () =>
-          openImagePopup(imageSrc, title)
-        );
-        cardImage.setAttribute("data-event-attached", "true");
-      }
-    });
   }
 
   // Função para abrir o popup de visualização da imagem em tamanho grande
@@ -132,12 +114,12 @@ document.addEventListener("DOMContentLoaded", () => {
     imagePopup.classList.add("popup", "popup_opened");
 
     imagePopup.innerHTML = `
-    <div class="popup__container popup__container_large">
-      <button class="popup__close"></button>
-      <img src="${imageSrc}" alt="${title}" class="popup__image-large" />
-      <h2 class="popup__title">${title}</h2>
-    </div>
-  `;
+        <div class="popup__container popup__container_large">
+          <button class="popup__close"></button>
+          <img src="${imageSrc}" alt="${title}" class="popup__image-large" />
+          <h2 class="popup__title">${title}</h2>
+        </div>
+      `;
 
     // Evento para fechar o popup ao clicar no botão de fechar
     const closeButton = imagePopup.querySelector(".popup__close");
@@ -149,6 +131,16 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(imagePopup);
   }
 
-  // Aplica as funcionalidades aos cartões já existentes
-  applyCardFunctionsToExistingCards();
+  // Renderiza os cartões iniciais
+  renderCards(cardsData);
+
+  // Função para renderizar todos os cartões a partir do array
+  function renderCards(cardsArray) {
+    const cardsContainer = document.querySelector(".cards");
+    cardsContainer.innerHTML = ""; // Limpa o contêiner antes de renderizar
+
+    cardsArray.forEach((card) => {
+      addNewLocationCard(card.title, card.imageLink);
+    });
+  }
 });
