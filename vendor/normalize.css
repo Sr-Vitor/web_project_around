@@ -5,15 +5,15 @@
 
 /**
  * 1. Corrija a altura da linha em todos os navegadores.
- * 2. Evite ajustes no tamanho da fonte após alterações de orientação no iOS.
+ * 2. Evite ajustes no tamanho da fonte apÃ³s alteraÃ§Ãµes de orientaÃ§Ã£o no iOS.
  */
 
-html {
+ html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
-/* Seção
+/* SeÃ§Ã£o
      ========================================================================== */
 
 /**
@@ -42,7 +42,7 @@ h1 {
   margin: 0.67em 0;
 }
 
-/* Agrupar conteúdo
+/* Agrupar conteÃºdo
      ========================================================================== */
 
 /**
@@ -57,8 +57,8 @@ hr {
 }
 
 /**
-   * 1. Corrija a herança e o dimensionamento do tamanho da fonte em todos os navegadores.
-   * 2. Corrija o tamanho ímpar da fonte `em` em todos os navegadores.
+   * 1. Corrija a heranÃ§a e o dimensionamento do tamanho da fonte em todos os navegadores.
+   * 2. Corrija o tamanho Ã­mpar da fonte `em` em todos os navegadores.
    */
 
 pre {
@@ -66,7 +66,7 @@ pre {
   font-size: 1em; /* 2 */
 }
 
-/* Semânticas a nível de texto
+/* SemÃ¢nticas a nÃ­vel de texto
      ========================================================================== */
 
 /**
@@ -74,12 +74,12 @@ pre {
    */
 
 a {
-  background-color: transparência;
+  background-color: transparÃªncia;
 }
 
 /**
    * 1. Remova a borda inferior no Chrome 57-
-   * 2. Adicione a decoração de texto correta no Chrome, Edge, IE, Opera e Safari.
+   * 2. Adicione a decoraÃ§Ã£o de texto correta no Chrome, Edge, IE, Opera e Safari.
    */
 
 abbr[title] {
@@ -98,8 +98,8 @@ strong {
 }
 
 /**
-   * 1. Corrija a herança e o dimensionamento do tamanho da fonte em todos os navegadores.
-   * 2. Corrija o tamanho ímpar da fonte `em` em todos os navegadores.
+   * 1. Corrija a heranÃ§a e o dimensionamento do tamanho da fonte em todos os navegadores.
+   * 2. Corrija o tamanho Ã­mpar da fonte `em` em todos os navegadores.
    */
 
 code,
@@ -118,7 +118,7 @@ small {
 }
 
 /**
-   * Impeça que os elementos `sub` e `sup` afetem a altura da linha em
+   * ImpeÃ§a que os elementos `sub` e `sup` afetem a altura da linha em
    * todos os navegadores.
    */
 
@@ -138,7 +138,7 @@ sup {
   top: -0.5em;
 }
 
-/* Conteúdo incorporado
+/* ConteÃºdo incorporado
      ========================================================================== */
 
 /**
@@ -149,7 +149,7 @@ img {
   border-style: none;
 }
 
-/* Formulários
+/* FormulÃ¡rios
      ========================================================================== */
 
 /**
@@ -180,8 +180,8 @@ input {
 }
 
 /**
-   * Remova a herança da transformação de texto no Edge, Firefox e IE.
-   * 1. Remove a herança de transformação de texto no Firefox.
+   * Remova a heranÃ§a da transformaÃ§Ã£o de texto no Edge, Firefox e IE.
+   * 1. Remove a heranÃ§a de transformaÃ§Ã£o de texto no Firefox.
    */
 
 button,
@@ -191,7 +191,7 @@ select {
 }
 
 /**
-   * Corrija a incapacidade de estilizar tipos clicáveis no iOS e no Safari.
+   * Corrija a incapacidade de estilizar tipos clicÃ¡veis no iOS e no Safari.
    */
 
 button,
@@ -234,8 +234,8 @@ fieldset {
 
 /**
    * 1. Corrija a quebra de texto no Edge e no IE.
-   * 2. Corrija a herança de cores dos elementos `fieldset` no IE.
-   * 3. Remova o preenchimento para que os desenvolvedores não sejam pegos de surpresa quando zerarem
+   * 2. Corrija a heranÃ§a de cores dos elementos `fieldset` no IE.
+   * 3. Remova o preenchimento para que os desenvolvedores nÃ£o sejam pegos de surpresa quando zerarem
    *     elementos `fieldset` em todos os navegadores.
    */
 
@@ -257,7 +257,7 @@ progress {
 }
 
 /**
-   * Remova a barra de rolagem vertical padrão no IE 10+.
+   * Remova a barra de rolagem vertical padrÃ£o no IE 10+.
    */
 
 textarea {
@@ -276,7 +276,7 @@ textarea {
 }
 
 /**
-   * Corrija o estilo do cursor dos botões de aumentar e diminuir no Chrome.
+   * Corrija o estilo do cursor dos botÃµes de aumentar e diminuir no Chrome.
    */
 
 [type="number"]::-webkit-inner-spin-button,
@@ -285,7 +285,7 @@ textarea {
 }
 
 /**
-   * 1. Corrija a aparência estranha no Chrome e no Safari.
+   * 1. Corrija a aparÃªncia estranha no Chrome e no Safari.
    * 2. Corrija o estilo do contorno no Safari.
    */
 
@@ -303,7 +303,7 @@ textarea {
 }
 
 /**
-   * 1. Corrija a incapacidade de estilizar tipos clicáveis no iOS e no Safari.
+   * 1. Corrija a incapacidade de estilizar tipos clicÃ¡veis no iOS e no Safari.
    * 2. Altere as propriedades da fonte para `inherit` no Safari.
    */
 
@@ -316,7 +316,7 @@ textarea {
      ========================================================================== */
 
 /*
-   * Adicione a visualização correta no Edge, IE 10+ e Firefox.
+   * Adicione a visualizaÃ§Ã£o correta no Edge, IE 10+ e Firefox.
    */
 
 details {
@@ -324,7 +324,7 @@ details {
 }
 
 /*
-   * Adicione a visualização correta em todos os navegadores.
+   * Adicione a visualizaÃ§Ã£o correta em todos os navegadores.
    */
 
 summary {
@@ -335,7 +335,7 @@ summary {
      ========================================================================== */
 
 /**
-   * Adicione a visualização correta no IE 10+.
+   * Adicione a visualizaÃ§Ã£o correta no IE 10+.
    */
 
 template {
@@ -343,7 +343,7 @@ template {
 }
 
 /**
-   * Adicione a visualização correta no IE 10.
+   * Adicione a visualizaÃ§Ã£o correta no IE 10.
    */
 
 [hidden] {
