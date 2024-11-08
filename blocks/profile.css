@@ -1,0 +1,101 @@
+.profile {
+  display: flex;
+  align-items: center;
+  width: 880px;
+  height: 120px;
+  margin: 40px auto;
+  gap: 1.125rem;
+  /* flex-wrap: wrap; */
+}
+
+.profile__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.profile__info {
+  width: 100%;
+}
+
+.profile__name {
+  color: #fff;
+  margin: 0;
+  padding-right: 1rem;
+  font-family: Inter;
+  font-size: 2.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 3rem; /* 114.286% */
+  display: inline;
+}
+
+.profile__edit-button {
+  background: url(../images/images__button/edit__button.png) no-repeat center;
+  background-color: transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+.profile__about {
+  color: #fff;
+  margin: 0;
+  font-family: "Inted 400";
+  font-size: 1.2rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.profile__edit-button:hover {
+  opacity: 0.6;
+}
+
+.profile__add-button {
+  width: 9.4rem;
+  height: 3.1rem;
+  background: url(../images/images__button/add__button.png) no-repeat center;
+  background-color: transparent;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+
+.profile__add-button:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  .profile {
+    width: 660px;
+    margin: 40px auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 250px;
+  }
+
+  .profile__info {
+    text-align: center; /* Centralizar o texto para mobile */
+  }
+
+  .profile__name {
+    font-size: 1.7rem; /* Reduzir o tamanho da fonte para dispositivos móveis */
+    padding-right: 0; /* Remover padding direito para centralizar o nome */
+    margin-right: 10px;
+  }
+
+  .profile__about {
+    font-size: 1.3rem; /* Reduzir o tamanho da fonte da descrição */
+  }
+
+  .profile__add-button {
+    background: url(../images/images__button/plus.png) no-repeat center;
+    padding: 30px 160px;
+    border: 2px solid #fff;
+  }
+}

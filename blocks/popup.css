@@ -1,0 +1,96 @@
+/* Garantindo que o popup fique acima dos ícones de lixeira */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro para foco */
+  display: none; /* Oculto por padrão */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Z-index alto para estar acima de outros elementos */
+}
+
+.popup_opened {
+  display: flex; /* Mostra o popup quando a classe popup_opened é adicionada */
+}
+.popup__container {
+  width: 26.875rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.625rem;
+  background-color: #fff;
+  padding: 2.125rem 2.25rem 2.2819rem;
+  box-sizing: border-box;
+}
+.popup__title {
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  margin: 0 0 1.5rem;
+}
+.popup__input {
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  display: block;
+  padding: 0.8125rem 0.3125rem;
+  margin-top: 1.0625rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  box-sizing: border-box;
+}
+.popup__submit {
+  margin: 3rem 0 0;
+  width: 100%;
+  padding: 0.875rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 0.125rem;
+  font-family: "Inter", sans-serif;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+.popup__submit:hover {
+  opacity: 0.8;
+}
+.popup__submit:disabled {
+  opacity: 0.8;
+  background-color: #fff;
+  border: 1px solid;
+  color: grey;
+}
+/* Botão de fechar (X) para o popup de imagem ampliada */
+.popup__close {
+  width: 24px;
+  height: 24px;
+  background: url(../images/images__button/close_button.png) no-repeat center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  /* Garante que o botão fique acima do conteúdo do popup */
+}
+.popup__close:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 992px) {
+  .popup__container {
+    max-width: 75vw;
+    max-height: 75vh;
+    box-sizing: border-box;
+    padding: 1.56rem 1.38rem;
+  }
+  .popup__close {
+    top: -3rem;
+    right: 0.2rem;
+  }
+  .popup__title {
+    font-size: 1.125rem;
+    margin-bottom: 4.5rem;
+  }
+}
