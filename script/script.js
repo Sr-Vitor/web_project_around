@@ -110,35 +110,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Função para abrir o popup de visualização da imagem em tamanho grande
   function openImagePopup(imageSrc, title) {
+    // Cria o contêiner principal do popup
     const imagePopup = document.createElement("div");
     imagePopup.classList.add("popup", "popup_opened");
 
+    // Define o conteúdo HTML do popup, incluindo o botão de fechar, a imagem e o título
     imagePopup.innerHTML = `
-<<<<<<< HEAD
-    <div class="popup__container_large">
-      <button class="popup__image_close"></button>
-      <img src="${imageSrc}" alt="${title}" class="popup__image-large" />
-      <h2 class="popup__title">${title}</h2>
-    </div>
-  `;
-    // Evento para fechar o popup ao clicar no botão de fechar
-    const closeButton = imagePopup.querySelector(".popup__image_close");
-=======
-        <div class="popup__container popup__container_large">
-          <button class="popup__close"></button>
-          <img src="${imageSrc}" alt="${title}" class="popup__image-large" />
-          <h2 class="popup__title">${title}</h2>
-        </div>
-      `;
+      <div class="popup__container_large">
+        <button class="popup__image_close"></button>
+        <img src="${imageSrc}" alt="${title}" class="popup__image-large" />
+        <h2 class="popup__title">${title}</h2>
+      </div>
+    `;
 
     // Evento para fechar o popup ao clicar no botão de fechar
-    const closeButton = imagePopup.querySelector(".popup__close");
->>>>>>> fd79b95287dfea20f3fbeca40b5e5a1cf88fc26a
+    const closeButton = imagePopup.querySelector(".popup__image_close");
     closeButton.addEventListener("click", () => {
       imagePopup.classList.remove("popup_opened");
       imagePopup.remove();
     });
 
+    // Adiciona o popup de imagem ao corpo do documento
     document.body.appendChild(imagePopup);
   }
 

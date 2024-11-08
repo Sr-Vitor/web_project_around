@@ -28,11 +28,7 @@
 }
 .popup__title {
   color: #000;
-<<<<<<< HEAD
   font-family: "Inter", sans-serif;
-=======
-  font-family: Inter;
->>>>>>> fd79b95287dfea20f3fbeca40b5e5a1cf88fc26a
   font-size: 1.5rem;
   margin: 0 0 1.5rem;
 }
@@ -43,11 +39,7 @@
   display: block;
   padding: 0.8125rem 0.3125rem;
   margin-top: 1.0625rem;
-<<<<<<< HEAD
   font-family: "Inter", sans-serif;
-=======
-  font-family: Inter;
->>>>>>> fd79b95287dfea20f3fbeca40b5e5a1cf88fc26a
   font-size: 0.875rem;
   box-sizing: border-box;
 }
@@ -59,11 +51,7 @@
   color: #fff;
   border: none;
   border-radius: 0.125rem;
-<<<<<<< HEAD
   font-family: "Inter", sans-serif;
-=======
-  font-family: Inter;
->>>>>>> fd79b95287dfea20f3fbeca40b5e5a1cf88fc26a
   font-size: 1.125rem;
   cursor: pointer;
 }
@@ -76,7 +64,7 @@
   border: 1px solid;
   color: grey;
 }
-<<<<<<< HEAD
+
 /* Botão de fechar (X) para o popup de imagem ampliada */
 .popup__close {
   width: 24px;
@@ -85,61 +73,21 @@
   background-size: contain;
   border: none;
   cursor: pointer;
-  /* Garante que o botão fique acima do conteúdo do popup */
-=======
-.popup__close {
-  background: url(../images/images__button/close_button.png) no-repeat
-    transparent center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border: none;
-  position: absolute;
-  top: -2.5rem;
-  right: -2.5rem;
-  cursor: pointer;
->>>>>>> fd79b95287dfea20f3fbeca40b5e5a1cf88fc26a
 }
 .popup__close:hover {
   opacity: 0.6;
 }
 
-<<<<<<< HEAD
 @media screen and (max-width: 992px) {
   .popup__container {
     max-width: 75vw;
     max-height: 75vh;
-=======
-.popup__container_large {
-  max-width: 75vw;
-  max-height: 75vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
 }
-
-/* Imagem ampliada no popup */
-.popup__image-large {
-  max-width: 75%;
-  max-height: 75%;
-  object-fit: contain; /* Mantém a proporção da imagem */
-  margin: 10px 0;
-  padding-bottom: 0;
-  border-radius: 10px; /* Bordas arredondadas para combinar com o contêiner */
-}
-/* Abaixo é para o popup de adicionar cartões */
-
-/* Popup de adicionar novo local */
 
 @media screen and (max-width: 992px) {
   .popup__container {
     width: 88%;
->>>>>>> fd79b95287dfea20f3fbeca40b5e5a1cf88fc26a
     box-sizing: border-box;
     padding: 1.56rem 1.38rem;
   }
