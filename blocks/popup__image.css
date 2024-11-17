@@ -23,8 +23,8 @@
 
 .popup__image_close {
   position: absolute;
-  top: 1rem;
-  right: 23rem;
+  top: 0.8rem;
+  right: 27rem;
   width: 24px;
   height: 24px;
   background: url(../images/images__button/close_button.png) no-repeat center;
@@ -53,10 +53,10 @@
   }
 
   .popup__image_close {
-    top: 1rem;
-    right: 19rem;
-    width: 22px;
-    height: 22px;
+    top: 0.3rem;
+    right: 21rem;
+    width: 24px;
+    height: 24px;
     font-size: 22px;
   }
 }
@@ -78,10 +78,10 @@
   }
 
   .popup__image_close {
-    top: 1rem;
-    right: 14rem;
-    width: 20px;
-    height: 20px;
+    top: 0.1rem;
+    right: 17.5rem;
+    width: 24px;
+    height: 24px;
     font-size: 20px;
   }
 }
@@ -103,10 +103,10 @@
   }
 
   .popup__image_close {
-    top: 1.5rem;
-    right: 8rem;
-    width: 18px;
-    height: 18px;
+    top: 0.5rem;
+    right: 12rem;
+    width: 20px;
+    height: 20px;
     font-size: 18px;
   }
 }

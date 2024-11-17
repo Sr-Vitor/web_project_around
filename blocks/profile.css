@@ -22,7 +22,7 @@
   color: #fff;
   margin: 0;
   padding-right: 1rem;
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
   font-size: 2.6rem;
   font-style: normal;
   font-weight: 500;
@@ -41,10 +41,11 @@
 .profile__about {
   color: #fff;
   margin: 0;
-  font-family: "Inted 400";
+  font-family: "Inter", sans-serif;
   font-size: 1.2rem;
   font-style: normal;
   line-height: normal;
+  font-weight: 400;
 }
 
 .profile__edit-button:hover {
