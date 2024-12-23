@@ -1,37 +1,47 @@
 /* Garantindo que o popup fique acima dos ícones de lixeira */
 .popup {
+  display: none; /* Oculto por padrão */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro para foco */
-  display: none; /* Oculto por padrão */
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro */
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Z-index alto para estar acima de outros elementos */
+  z-index: 1000; /* Garantindo que esteja acima de outros elementos */
 }
 
+/* Popup ativado */
 .popup_opened {
-  display: flex; /* Mostra o popup quando a classe popup_opened é adicionada */
+  display: flex; /* Torna visível */
 }
+
+/* Container do popup */
 .popup__container {
   width: 26.875rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  max-height: 90vh;
+  overflow-y: auto; /* Permite rolagem para conteúdo maior */
+  position: relative;
   border-radius: 0.625rem;
   background-color: #fff;
-  padding: 2.125rem 2.25rem 2.2819rem;
+  padding: 2.125rem 2.25rem;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+/* Título do popup */
 .popup__title {
   color: #000;
-  font-family: "Inter", sans-serif;
   font-size: 1.5rem;
+  font-weight: bold;
   margin: 0 0 1.5rem;
+  text-align: center;
 }
+
+/* Input do formulário */
 .popup__input {
   border: none;
   width: 100%;
@@ -43,8 +53,23 @@
   font-size: 0.875rem;
   box-sizing: border-box;
 }
+
+/* Mensagem de erro abaixo dos inputs */
+.popup__error {
+  color: red;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  display: none;
+}
+
+/* Mensagem de erro visível */
+.popup__error_visible {
+  display: block;
+}
+
+/* Botão de envio */
 .popup__submit {
-  margin: 3rem 0 0;
+  margin-top: 1.5rem;
   width: 100%;
   padding: 0.875rem;
   background-color: #000;
@@ -54,16 +79,16 @@
   font-family: "Inter", sans-serif;
   font-size: 1.125rem;
   cursor: pointer;
+  text-align: center;
 }
-.popup__submit:hover {
-  opacity: 0.8;
+
+/* Botão de envio desabilitado */
+.popup__button_disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
-.popup__submit:disabled {
-  opacity: 0.8;
-  background-color: #fff;
-  border: 1px solid;
-  color: grey;
-}
+
+/* Botão de fechar o popup */
 
 .popup__close {
   width: 24px;
@@ -72,11 +97,14 @@
   background-size: contain;
   border: none;
   cursor: pointer;
-}
-.popup__close:hover {
-  opacity: 0.6;
+  z-index: 1010;
 }
 
+.popup__close:hover {
+  opacity: 0.8;
+}
+
+/* Responsividade */
 @media screen and (max-width: 992px) {
   .popup__container {
     max-width: 75vw;

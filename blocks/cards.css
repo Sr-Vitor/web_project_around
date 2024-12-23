@@ -68,6 +68,8 @@
   background-repeat: no-repeat;
   background-size: contain;
   transition: 0.4s ease-in-out;
+  background-color: #fff;
+  border: none;
 }
 .cards__like-icon:hover {
   background-image: url(../images/images__button/like__active.png);

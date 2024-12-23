@@ -17,18 +17,15 @@
     <header class="header">
       <img
         src="images/Vector.png"
-        alt="An image of a text written Around the US"
+        alt="Logo with the text Around the US"
         class="header__logo"
       />
-      <img
-        src="images/Line.png"
-        alt="line dividinng the title of the page from profiles name"
-        class="header__line"
-      />
+      <img src="images/Line.png" alt="Divider line" class="header__line" />
     </header>
+
     <main class="main">
       <section class="profile">
-        <img class="profile__avatar" src="./images/image.jpg" alt="profile" />
+        <img class="profile__avatar" src="./images/image.jpg" alt="Profile" />
         <div class="profile__info">
           <h1 class="profile__name">Jacques Cousteau</h1>
           <button class="profile__edit-button"></button>
@@ -38,6 +35,7 @@
       </section>
 
       <section class="cards">
+        <!-- Cartões iniciais mantidos -->
         <div class="cards__card">
           <img class="cards__image" src="./images/image1.jpeg" alt="image-1" />
           <div class="cards__group">
@@ -47,7 +45,7 @@
           <img
             class="cards__trash"
             src="./images/images__button/trash.svg"
-            alt="TÍTULO_DO_LOCAL"
+            alt="Delete"
           />
           <button class="cards__delete-icon"></button>
         </div>
@@ -55,13 +53,13 @@
         <div class="cards__card">
           <img class="cards__image" src="../images/image2.jpeg" alt="image-2" />
           <div class="cards__group">
-            <h2 class="cards__title">Hollywood, C.A</h2>
+            <h2 class="cards__title">Hollywood, CA</h2>
             <div class="cards__like-icon"></div>
           </div>
           <img
             class="cards__trash"
             src="./images/images__button/trash.svg"
-            alt="TÍTULO_DO_LOCAL"
+            alt="Delete"
           />
           <button class="cards__delete-icon"></button>
         </div>
@@ -75,10 +73,11 @@
           <img
             class="cards__trash"
             src="./images/images__button/trash.svg"
-            alt="TÍTULO_DO_LOCAL"
+            alt="Delete"
           />
           <button class="cards__delete-icon"></button>
         </div>
+
         <div class="cards__card">
           <img class="cards__image" src="./images/image4.jpeg" alt="image-4" />
           <div class="cards__group">
@@ -88,10 +87,11 @@
           <img
             class="cards__trash"
             src="./images/images__button/trash.svg"
-            alt="TÍTULO_DO_LOCAL"
+            alt="Delete"
           />
           <button class="cards__delete-icon"></button>
         </div>
+
         <div class="cards__card">
           <img class="cards__image" src="./images/image5.jpeg" alt="image-5" />
           <div class="cards__group">
@@ -101,10 +101,11 @@
           <img
             class="cards__trash"
             src="./images/images__button/trash.svg"
-            alt="TÍTULO_DO_LOCAL"
+            alt="Delete"
           />
           <button class="cards__delete-icon"></button>
         </div>
+
         <div class="cards__card">
           <img class="cards__image" src="./images/image6.jpeg" alt="image-6" />
           <div class="cards__group">
@@ -114,58 +115,91 @@
           <img
             class="cards__trash"
             src="./images/images__button/trash.svg"
-            alt="TÍTULO_DO_LOCAL"
+            alt="Delete"
           />
           <button class="cards__delete-icon"></button>
         </div>
       </section>
     </main>
+
     <footer class="footer">
       <span class="footer__copyright"
         >© 2023 Around The U.S. by Vitor Oliveira</span
       >
     </footer>
 
-    -
-
+    <!-- Popup de Editar Perfil -->
     <section class="popup">
-      <form action="#" class="popup__container">
-        <h2 class="popup__title">Edit profile</h2>
+      <form
+        action="#"
+        class="popup__container popup__form"
+        id="edit-profile-form"
+      >
+        <h2 class="popup__title">Edit Profile</h2>
         <input
           type="text"
           class="popup__input popup__input_name"
+          id="profile-name"
+          name="name"
           placeholder="Name"
+          required
+          minlength="2"
+          maxlength="40"
         />
+        <span id="profile-name-error" class="popup__error"></span>
+
         <input
           type="text"
           class="popup__input popup__input_about"
+          id="profile-about"
+          name="about"
           placeholder="About me"
+          required
+          minlength="2"
+          maxlength="200"
         />
-        <button class="popup__submit" type="submit">Save</button>
+        <span id="profile-about-error" class="popup__error"></span>
+
+        <button class="popup__submit popup__button_disabled" disabled>
+          Save
+        </button>
         <button class="popup__close" type="button"></button>
       </form>
     </section>
 
+    <!-- Popup de Adicionar Novo Cartão -->
     <section class="popup popup_add">
-      <form action="#" class="popup__container">
-        <h2 class="popup__title">Novo local</h2>
+      <form action="#" class="popup__container" id="add-location-form">
+        <h2 class="popup__title">New Location</h2>
         <input
           type="text"
           class="popup__input popup__input_title"
-          placeholder="Título"
+          id="location-title"
+          name="title"
+          placeholder="Title"
           required
+          minlength="2"
+          maxlength="30"
         />
+        <span id="location-title-error" class="popup__error"></span>
+
         <input
           type="url"
           class="popup__input popup__input_image-link"
-          placeholder="Link de imagem"
+          id="location-url"
+          name="url"
+          placeholder="Image URL"
           required
         />
-        <button class="popup__submit" type="submit">Criar</button>
+        <span id="location-url-error" class="popup__error"></span>
+
+        <button class="popup__submit popup__button_disabled" disabled>
+          Create
+        </button>
         <button class="popup__close" type="button"></button>
       </form>
     </section>
 
-    <script src="./script/script.js"></script>
+    <script type="module" src="./script/script.js"></script>
   </body>
 </html>
