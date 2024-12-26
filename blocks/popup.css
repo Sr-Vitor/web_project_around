@@ -83,7 +83,7 @@
 }
 
 /* Botão de envio desabilitado */
-.popup__button_disabled {
+.popup__submit_disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
