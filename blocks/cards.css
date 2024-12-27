@@ -72,7 +72,7 @@
   border: none;
 }
 .cards__like-icon:hover {
-  background-image: url(../images/images__button/like__active.png);
+  background-image: url(../images/images__button/like__active.webp);
 }
 
 .cards__trash {

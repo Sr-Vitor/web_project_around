@@ -31,7 +31,7 @@
 }
 
 .profile__edit-button {
-  background: url(../images/images__button/edit__button.png) no-repeat center;
+  background: url(../images/images__button/edit__button.webp) no-repeat center;
   background-color: transparent;
   width: 1.5rem;
   height: 1.5rem;
@@ -55,7 +55,7 @@
 .profile__add-button {
   width: 9.4rem;
   height: 3.1rem;
-  background: url(../images/images__button/add__button.png) no-repeat center;
+  background: url(../images/images__button/add__button.webp) no-repeat center;
   background-color: transparent;
   border: 2px solid #fff;
   cursor: pointer;
@@ -95,7 +95,7 @@
   }
 
   .profile__add-button {
-    background: url(../images/images__button/plus.png) no-repeat center;
+    background: url(../images/images__button/plus.webp) no-repeat center;
     padding: 30px 160px;
     border: 2px solid #fff;
   }
