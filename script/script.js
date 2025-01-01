@@ -23,6 +23,36 @@ document.addEventListener("DOMContentLoaded", () => {
     { title: "New York", imageLink: "./images/image6.jpeg" },
   ];
 
+  // Função para verificar e adicionar dinamicamente os botões de fechar
+  function ensureCloseButtons() {
+    const popups = document.querySelectorAll(".popup");
+
+    popups.forEach((popup) => {
+      // Verifica se o botão de fechar existe
+      let closeButton = popup.querySelector(".popup__close");
+
+      if (!closeButton) {
+        // Cria o botão de fechar dinamicamente
+        closeButton = document.createElement("button");
+        closeButton.classList.add("popup__close");
+        closeButton.type = "button";
+
+        // Adiciona o botão no popup
+        popup.appendChild(closeButton);
+
+        // Adiciona o evento de clique para fechar o popup
+        closeButton.addEventListener("click", () => {
+          popup.classList.remove("popup_opened");
+        });
+      }
+    });
+
+    console.log("Botões 'X' adicionados dinamicamente aos popups.");
+  }
+
+  // Chama a função para garantir que os botões estejam presentes
+  ensureCloseButtons();
+
   // Função para renderizar cartões
   function renderCards(cardsArray) {
     const cardsContainer = document.querySelector(".cards");
@@ -39,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const editPopup = document
     .querySelector("#edit-profile-form")
     .closest(".popup");
-  const closeEditPopupButton = editPopup.querySelector(".popup__close");
   const saveButton = editPopup.querySelector(".popup__submit");
   const profileName = document.querySelector(".profile__name");
   const profileAbout = document.querySelector(".profile__about");
@@ -51,10 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     popupNameInput.value = profileName.textContent;
     popupAboutInput.value = profileAbout.textContent;
     editPopup.classList.add("popup_opened");
-  });
-
-  closeEditPopupButton.addEventListener("click", () => {
-    editPopup.classList.remove("popup_opened");
   });
 
   saveButton.addEventListener("click", (event) => {
@@ -69,7 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const addPopup = document
     .querySelector("#add-location-form")
     .closest(".popup");
-  const closeAddPopupButton = addPopup.querySelector(".popup__close");
   const createButton = addPopup.querySelector(".popup__submit");
   const titleInput = document.querySelector("#location-title");
   const imageLinkInput = document.querySelector("#location-url");
@@ -77,10 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
   addButton.addEventListener("click", () => {
     resetValidation(addPopup, validationConfig);
     addPopup.classList.add("popup_opened");
-  });
-
-  closeAddPopupButton.addEventListener("click", () => {
-    addPopup.classList.remove("popup_opened");
   });
 
   createButton.addEventListener("click", (event) => {
@@ -130,13 +150,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     imagePopup.innerHTML = `
       <div class="popup__container_large">
-        <button class="popup__close"></button>
+        <button class="popup__image_close"></button>
         <img src="${imageSrc}" alt="${title}" class="popup__image-large">
         <h2 class="popup__title">${title}</h2>
       </div>
     `;
 
-    const closeButton = imagePopup.querySelector(".popup__close");
+    const closeButton = imagePopup.querySelector(".popup__image_close");
     closeButton.addEventListener("click", () => {
       imagePopup.classList.remove("popup_opened");
       imagePopup.remove();

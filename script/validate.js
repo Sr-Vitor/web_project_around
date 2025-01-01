@@ -39,9 +39,13 @@ function toggleButtonState(form, config) {
   if (inputs.some((input) => !input.validity.valid)) {
     button.classList.add(config.inactiveButtonClass);
     button.disabled = true;
+    button.style.backgroundColor = "#ccc"; // Cor do botão desabilitado
+    button.style.cursor = "not-allowed"; // Cursor para estado desabilitado
   } else {
     button.classList.remove(config.inactiveButtonClass);
     button.disabled = false;
+    button.style.backgroundColor = "#000"; // Cor do botão habilitado
+    button.style.cursor = "pointer"; // Cursor para estado habilitado
   }
 }
 

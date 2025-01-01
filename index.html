@@ -122,6 +122,19 @@
       </section>
     </main>
 
+    <template id="card-template">
+      <div class="cards__card">
+        <img class="cards__image" alt="Card Image" />
+        <div class="cards__group">
+          <h2 class="cards__title"></h2>
+          <button class="cards__like-icon"></button>
+        </div>
+        <button class="cards__trash">
+          <img src="./images/images__button/trash.svg" alt="Trash icon" />
+        </button>
+      </div>
+    </template>
+
     <footer class="footer">
       <span class="footer__copyright"
         >© 2023 Around The U.S. by Vitor Oliveira</span
@@ -169,7 +182,11 @@
 
     <!-- Popup de Adicionar Novo Cartão -->
     <section class="popup popup_add">
-      <form action="#" class="popup__container" id="add-location-form">
+      <form
+        action="#"
+        class="popup__container popup__form"
+        id="add-location-form"
+      >
         <h2 class="popup__title">New Location</h2>
         <input
           type="text"
