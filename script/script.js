@@ -1,7 +1,6 @@
 import { enableValidation } from "./validate.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Configuração de validação
   const validationConfig = {
     formSelector: ".popup__container",
     inputSelector: ".popup__input",
@@ -13,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   enableValidation(validationConfig);
 
-  // Array de cartões iniciais
   const cardsData = [
     { title: "Minneapolis, MN", imageLink: "./images/image1.jpeg" },
     { title: "Hollywood, CA", imageLink: "./images/image2.jpeg" },
@@ -23,23 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
     { title: "New York", imageLink: "./images/image6.jpeg" },
   ];
 
-  // Função para verificar e adicionar dinamicamente os botões de fechar
-  function addCloseButtonListeners() {
-    const closeButtons = document.querySelectorAll(".popup__close");
+  const template = document.querySelector("#card-template").content;
 
-    closeButtons.forEach((button) => {
-      button.addEventListener("click", (event) => {
-        const popup = event.target.closest(".popup");
-        if (popup) {
-          popup.classList.remove("popup_opened");
-        }
-      });
-    });
-  }
-
-  // Chama a função para adicionar os eventos
-  addCloseButtonListeners();
-  // Função para renderizar cartões
   function renderCards(cardsArray) {
     const cardsContainer = document.querySelector(".cards");
     cardsContainer.innerHTML = "";
@@ -50,11 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderCards(cardsData);
 
-  // Seleção de elementos para editar perfil
   const editButton = document.querySelector(".profile__edit-button");
   const editPopup = document
     .querySelector("#edit-profile-form")
     .closest(".popup");
+  const editPopupCloseButton = editPopup.querySelector(".popup__close");
   const saveButton = editPopup.querySelector(".popup__submit");
   const profileName = document.querySelector(".profile__name");
   const profileAbout = document.querySelector(".profile__about");
@@ -68,6 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
     editPopup.classList.add("popup_opened");
   });
 
+  editPopupCloseButton.addEventListener("click", () => {
+    editPopup.classList.remove("popup_opened");
+  });
+
   saveButton.addEventListener("click", (event) => {
     event.preventDefault();
     profileName.textContent = popupNameInput.value;
@@ -75,11 +62,11 @@ document.addEventListener("DOMContentLoaded", () => {
     editPopup.classList.remove("popup_opened");
   });
 
-  // Seleção de elementos para adicionar novo cartão
   const addButton = document.querySelector(".profile__add-button");
   const addPopup = document
     .querySelector("#add-location-form")
     .closest(".popup");
+  const addPopupCloseButton = addPopup.querySelector(".popup__close");
   const createButton = addPopup.querySelector(".popup__submit");
   const titleInput = document.querySelector("#location-title");
   const imageLinkInput = document.querySelector("#location-url");
@@ -87,6 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
   addButton.addEventListener("click", () => {
     resetValidation(addPopup, validationConfig);
     addPopup.classList.add("popup_opened");
+  });
+
+  addPopupCloseButton.addEventListener("click", () => {
+    addPopup.classList.remove("popup_opened");
   });
 
   createButton.addEventListener("click", (event) => {
@@ -101,57 +92,57 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Adicionar novo cartão
   function addNewLocationCard(title, imageLink) {
     const cardsContainer = document.querySelector(".cards");
-    const newCard = document.createElement("div");
-    newCard.classList.add("cards__card");
+    const cardElement = template.cloneNode(true).firstElementChild;
 
-    newCard.innerHTML = `
-      <img src="${imageLink}" alt="${title}" class="cards__image">
-      <div class="cards__group">
-        <h2 class="cards__title">${title}</h2>
-        <button class="cards__like-icon"></button>
-      </div>
-      <button class="cards__trash">
-        <img src="./images/images__button/trash.svg" alt="Trash icon">
-      </button>
-    `;
+    const cardImage = cardElement.querySelector(".cards__image");
+    cardImage.src = imageLink;
+    cardImage.alt = title;
+    cardImage.addEventListener("click", () => openImagePopup(imageLink, title));
 
-    newCard.querySelector(".cards__image").addEventListener("click", () => {
-      openImagePopup(imageLink, title);
+    const cardTitle = cardElement.querySelector(".cards__title");
+    cardTitle.textContent = title;
+
+    const trashButton = cardElement.querySelector(".cards__trash");
+    trashButton.addEventListener("click", () => {
+      cardElement.remove(); // Remove o card do DOM
     });
 
-    newCard
-      .querySelector(".cards__trash")
-      .addEventListener("click", () => newCard.remove());
-
-    cardsContainer.prepend(newCard);
+    cardsContainer.prepend(cardElement);
   }
 
-  // Função para abrir popup de imagem
   function openImagePopup(imageSrc, title) {
     const imagePopup = document.createElement("div");
     imagePopup.classList.add("popup", "popup_opened");
 
-    imagePopup.innerHTML = `
-      <div class="popup__container_large">
-        <button class="popup__image_close"></button>
-        <img src="${imageSrc}" alt="${title}" class="popup__image-large">
-        <h2 class="popup__title">${title}</h2>
-      </div>
-    `;
+    const container = document.createElement("div");
+    container.classList.add("popup__container_large");
 
-    const closeButton = imagePopup.querySelector(".popup__image_close");
+    const closeButton = document.createElement("button");
+    closeButton.classList.add("popup__image_close");
     closeButton.addEventListener("click", () => {
       imagePopup.classList.remove("popup_opened");
       imagePopup.remove();
     });
 
+    const image = document.createElement("img");
+    image.classList.add("popup__image-large");
+    image.src = imageSrc;
+    image.alt = title;
+
+    const popupTitle = document.createElement("h2");
+    popupTitle.classList.add("popup__title");
+    popupTitle.textContent = title;
+
+    container.appendChild(closeButton);
+    container.appendChild(image);
+    container.appendChild(popupTitle);
+
+    imagePopup.appendChild(container);
     document.body.appendChild(imagePopup);
   }
 
-  // Resetar validação do formulário
   function resetValidation(popup, config) {
     const form = popup.querySelector(config.formSelector);
     const inputs = Array.from(form.querySelectorAll(config.inputSelector));
@@ -168,14 +159,12 @@ document.addEventListener("DOMContentLoaded", () => {
     button.disabled = true;
   }
 
-  // Fechar popups com clique fora
   document.addEventListener("click", (event) => {
     if (event.target.classList.contains("popup_opened")) {
       event.target.classList.remove("popup_opened");
     }
   });
 
-  // Fechar popups com tecla Esc
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       const openedPopup = document.querySelector(".popup_opened");
