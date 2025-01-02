@@ -12,16 +12,10 @@
   z-index: 1000; /* Garantindo que esteja acima de outros elementos */
 }
 
-/* Popup ativado */
-.popup_opened {
-  display: flex; /* Torna visível */
-}
-
 /* Container do popup */
 .popup__container {
   width: 26.875rem;
   max-height: 90vh;
-  overflow-y: auto; /* Permite rolagem para conteúdo maior */
   position: relative;
   border-radius: 0.625rem;
   background-color: #fff;
@@ -92,12 +86,15 @@
 /* Botão de fechar o popup */
 .popup__close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: -40px;
+  right: -40px;
   width: 24px;
   height: 24px;
-  background: url(../images/images__button/close_button.webp) no-repeat center;
+  background-image: url(../images/images__button/close_button.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: contain;
+  background-color: transparent;
   border: none;
   cursor: pointer;
   z-index: 1010;
@@ -126,40 +123,3 @@
 }
 
 /* Contêiner do popup */
-.popup__container {
-  width: 26.875rem; /* Largura do popup */
-  border-radius: 0.625rem;
-  background-color: #fff; /* Fundo branco do popup */
-  padding: 2.125rem 2.25rem; /* Espaçamento interno */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
-  box-sizing: border-box;
-  position: relative;
-}
-.popup__title {
-  color: #000;
-  font-size: 1.5rem;
-  margin: 0 0 1.5rem;
-}
-
-.popup__input {
-  border: none;
-  width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  display: block;
-  padding: 0.8125rem 0.3125rem;
-  margin-top: 1.0625rem;
-  font-size: 0.875rem;
-  box-sizing: border-box;
-}
-
-.popup__submit {
-  margin-top: 1.5rem;
-  width: 100%;
-  padding: 0.875rem;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 0.125rem;
-  font-size: 1.125rem;
-  cursor: pointer;
-}

@@ -24,35 +24,21 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   // Função para verificar e adicionar dinamicamente os botões de fechar
-  function ensureCloseButtons() {
-    const popups = document.querySelectorAll(".popup");
+  function addCloseButtonListeners() {
+    const closeButtons = document.querySelectorAll(".popup__close");
 
-    popups.forEach((popup) => {
-      // Verifica se o botão de fechar existe
-      let closeButton = popup.querySelector(".popup__close");
-
-      if (!closeButton) {
-        // Cria o botão de fechar dinamicamente
-        closeButton = document.createElement("button");
-        closeButton.classList.add("popup__close");
-        closeButton.type = "button";
-
-        // Adiciona o botão no popup
-        popup.appendChild(closeButton);
-
-        // Adiciona o evento de clique para fechar o popup
-        closeButton.addEventListener("click", () => {
+    closeButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const popup = event.target.closest(".popup");
+        if (popup) {
           popup.classList.remove("popup_opened");
-        });
-      }
+        }
+      });
     });
-
-    console.log("Botões 'X' adicionados dinamicamente aos popups.");
   }
 
-  // Chama a função para garantir que os botões estejam presentes
-  ensureCloseButtons();
-
+  // Chama a função para adicionar os eventos
+  addCloseButtonListeners();
   // Função para renderizar cartões
   function renderCards(cardsArray) {
     const cardsContainer = document.querySelector(".cards");
