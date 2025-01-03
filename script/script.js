@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelector("#edit-profile-form")
     .closest(".popup");
   const editPopupCloseButton = editPopup.querySelector(".popup__close");
-  const saveButton = editPopup.querySelector(".popup__submit");
+  const editForm = document.querySelector("#edit-profile-form");
   const profileName = document.querySelector(".profile__name");
   const profileAbout = document.querySelector(".profile__about");
   const popupNameInput = document.querySelector("#profile-name");
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     editPopup.classList.remove("popup_opened");
   });
 
-  saveButton.addEventListener("click", (event) => {
+  editForm.addEventListener("submit", (event) => {
     event.preventDefault();
     profileName.textContent = popupNameInput.value;
     profileAbout.textContent = popupAboutInput.value;
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelector("#add-location-form")
     .closest(".popup");
   const addPopupCloseButton = addPopup.querySelector(".popup__close");
-  const createButton = addPopup.querySelector(".popup__submit");
+  const addForm = document.querySelector("#add-location-form");
   const titleInput = document.querySelector("#location-title");
   const imageLinkInput = document.querySelector("#location-url");
 
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     addPopup.classList.remove("popup_opened");
   });
 
-  createButton.addEventListener("click", (event) => {
+  addForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const title = titleInput.value.trim();
     const imageLink = imageLinkInput.value.trim();
@@ -105,9 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cardTitle.textContent = title;
 
     const trashButton = cardElement.querySelector(".cards__trash");
-    trashButton.addEventListener("click", () => {
-      cardElement.remove(); // Remove o card do DOM
-    });
+    trashButton.addEventListener("click", () => cardElement.remove());
 
     cardsContainer.prepend(cardElement);
   }
