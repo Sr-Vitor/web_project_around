@@ -36,6 +36,141 @@
 .popup__image_close:hover {
   opacity: 0.6;
 }
+@media (min-width: 2601px) {
+  .popup__container {
+    width: 25%;
+    box-sizing: border-box;
+    padding: 2.5rem 2rem;
+  }
+  .popup__close {
+    top: -3rem;
+  }
+  .popup__title {
+    font-size: 3.75rem;
+    margin-bottom: 4.5rem;
+  }
+  .popup__container_large {
+    max-width: 70vw;
+    max-height: 70vh;
+    padding-top: 60px;
+    border-radius: 12px;
+  }
+
+  .popup__image-large {
+    max-width: 65vw;
+    max-height: 65vh;
+    margin: 20px 0;
+    border-radius: 12px;
+  }
+
+  .popup__image_close {
+    top: 6.5rem;
+    right: 55rem;
+    width: 32px;
+    height: 32px;
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 2600px) and (min-width: 2400px) {
+  .popup__container {
+    width: 30%;
+    height: 30%;
+    box-sizing: border-box;
+    padding: 2rem 1.5rem;
+  }
+  .popup__close {
+    top: -3rem;
+  }
+  .popup__title {
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+  }
+  .popup__container_large {
+    max-width: 75vw;
+    max-height: 75vh;
+    padding-top: 50px;
+    border-radius: 10px;
+  }
+
+  .popup__image-large {
+    max-width: 70vw;
+    max-height: 70vh;
+    margin: 15px 0;
+    border-radius: 10px;
+  }
+
+  .popup__image_close {
+    top: 14rem;
+    right: 55rem;
+    width: 50px;
+    height: 50px;
+    font-size: 26px;
+  }
+  /* Input do formulário */
+  .popup__input {
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    display: block;
+    padding: 0.8125rem 0.3125rem;
+    margin-top: 2.0625rem;
+    font-family: "Inter", sans-serif;
+    font-size: 1.875rem;
+    box-sizing: border-box;
+  }
+
+  /* Mensagem de erro abaixo dos inputs */
+  .popup__error {
+    color: red;
+    font-size: 1rem;
+    margin-top: 0.8rem;
+    display: none;
+  }
+
+  /* Mensagem de erro visível */
+  .popup__error_visible {
+    display: block;
+  }
+
+  /* Botão de envio */
+  .popup__submit {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0.875rem;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 0.125rem;
+    font-family: "Inter", sans-serif;
+    font-size: 1.125rem;
+    cursor: pointer;
+    text-align: center;
+  }
+}
+/* Estilo responsivo para telas maiores que 2100px */
+@media (min-width: 2101px) and (max-width: 2400px) {
+  .popup__container {
+    width: 30%;
+    height: 30%;
+    box-sizing: border-box;
+    padding: 2rem 1.5rem;
+  }
+  .popup__close {
+    top: -3rem;
+  }
+  .popup__title {
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+  }
+  .popup__image_close {
+    top: 17rem;
+    right: 46rem;
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+  }
+}
 
 /* Responsividade */
 
@@ -67,10 +202,10 @@
   }
 
   .popup__image_close {
-    top: 1.6rem;
-    right: 38.5rem;
-    width: 24px;
-    height: 24px;
+    top: 16.6rem;
+    right: 36.5rem;
+    width: 35px;
+    height: 35px;
     font-size: 22px;
   }
 }
