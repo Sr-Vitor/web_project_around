@@ -5,7 +5,7 @@ export default class PopupWithImage extends Popup {
     super(popupSelector);
     this._image = this._popup.querySelector(".popup__image-large");
     this._caption = this._popup.querySelector(".popup__title");
-    this._closeButton = this._popup.querySelector(".popup__image_close"); // Adiciona o botão de fechar
+    this._closeButton = this._popup.querySelector(".popup__image_close"); // Add the close button
   }
 
   open(imageLink, title) {

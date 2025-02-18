@@ -5,7 +5,7 @@ import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "./UserInfo.js";
 
-// Configuração de validação
+// Validation configuration
 const validationConfig = {
   formSelector: ".popup__container",
   inputSelector: ".popup__input",
@@ -15,7 +15,7 @@ const validationConfig = {
   errorClass: "popup__error_visible",
 };
 
-// **ELEMENTOS DO DOM**
+// **DOM ELEMENTS**
 const editPopupElement = document
   .querySelector("#edit-profile-form")
   .closest(".popup");
@@ -32,7 +32,7 @@ const editButton = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__add-button");
 const cardsContainerSelector = ".cards";
 
-// **ARRAY DE CARDS INICIAIS**
+// **INITIAL CARDS ARRAY**
 const cardsData = [
   { title: "Minneapolis, MN", imageLink: "./images/image1.jpeg" },
   { title: "Hollywood, CA", imageLink: "./images/image2.jpeg" },
@@ -42,17 +42,17 @@ const cardsData = [
   { title: "New York", imageLink: "./images/image6.jpeg" },
 ];
 
-// **INSTANCIANDO CLASSES**
+// **INSTANTIATING CLASSES**
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
   aboutSelector: ".profile__about",
 });
 
-// Criando o popup de imagem
+// Creating the image popup
 const imagePopup = new PopupWithImage(".popup_type_image");
 imagePopup.setEventListeners();
 
-// Criando a galeria de imagens
+// Creating the image gallery
 const section = new Section(
   {
     items: cardsData,
@@ -68,14 +68,14 @@ const section = new Section(
 
 section.renderItems();
 
-// Criando o popup de edição de perfil
+// Creating the profile edit popup
 const editPopup = new PopupWithForm(".popup", (formData) => {
   userInfo.setUserInfo(formData);
   editPopup.close();
 });
 editPopup.setEventListeners();
 
-// Criando o popup de adição de cartão
+// Creating the card addition popup
 const addPopup = new PopupWithForm(".popup_add", (formData) => {
   const card = new Card(formData, "#card-template", (imageLink, title) => {
     imagePopup.open(imageLink, title);
@@ -85,7 +85,7 @@ const addPopup = new PopupWithForm(".popup_add", (formData) => {
 });
 addPopup.setEventListeners();
 
-// EVENTOS
+// EVENTS
 editButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
   popupNameInput.value = userData.name;
@@ -97,7 +97,7 @@ addButton.addEventListener("click", () => {
   addPopup.open();
 });
 
-// Habilitando validação
+// Enabling validation
 const editFormValidator = new FormValidator(validationConfig, editPopupElement);
 const addFormValidator = new FormValidator(validationConfig, addPopupElement);
 

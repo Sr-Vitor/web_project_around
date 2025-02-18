@@ -46,6 +46,8 @@
   font-style: normal;
   line-height: normal;
   font-weight: 400;
+  overflow: hidden; /* Evita que o texto transborde */
+  text-overflow: ellipsis;
 }
 
 .profile__edit-button:hover {
@@ -81,17 +83,17 @@
   }
 
   .profile__info {
-    text-align: center; /* Centralizar o texto para mobile */
+    text-align: center; /* Center text for mobile */
   }
 
   .profile__name {
-    font-size: 1.7rem; /* Reduzir o tamanho da fonte para dispositivos móveis */
-    padding-right: 0; /* Remover padding direito para centralizar o nome */
+    font-size: 1.7rem; /* Reduce font size for mobile devices */
+    padding-right: 0; /* Remove right padding to center the name */
     margin-right: 10px;
   }
 
   .profile__about {
-    font-size: 1.3rem; /* Reduzir o tamanho da fonte da descrição */
+    font-size: 1.3rem; /* Reduce description font size */
   }
 
   .profile__add-button {

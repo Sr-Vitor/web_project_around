@@ -22,12 +22,12 @@
   font-weight: 900;
 }
 
-/* Estilo da imagem do cartão para cobrir completamente o topo */
+/* Card image style to completely cover the top */
 .cards__image {
   width: 100%;
   max-height: 100%;
-  max-height: 282px; /* Define uma altura máxima para a imagem */
-  /* Faz com que a imagem cubra totalmente o contêiner */
+  max-height: 282px; /* Sets a maximum height for the image */
+  /* Makes the image completely cover the container */
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   display: block;
@@ -36,8 +36,8 @@
 }
 
 .cards__image:hover {
-  transform: scale(1.05); /* Aumenta a imagem 5% ao passar o mouse */
-  opacity: 0.9; /* Torna a imagem levemente opaca */
+  transform: scale(1.05); /* Enlarges the image by 5% on hover */
+  opacity: 0.9; /* Makes the image slightly opaque */
 }
 .cards__group {
   display: flex;
@@ -81,10 +81,10 @@
   position: absolute;
   top: 20px;
   right: 10px;
-  width: 24px; /* Tamanho consistente */
+  width: 24px; /* Consistent size */
   height: 24px;
-  background: none; /* Remove qualquer fundo extra */
-  border: none; /* Remove borda extra */
+  background: none; /* Removes any extra background */
+  border: none; /* Removes extra border */
   padding-top: 0;
   cursor: pointer;
   z-index: 15;
@@ -103,7 +103,7 @@
 
 @media (max-width: 1024px) and (min-width: 768px) {
   .cards {
-    width: 660px; /* Ajusta o contêiner para caber dois cartões por linha */
+    width: 660px; /* Adjusts the container to fit two cards per row */
     margin: auto;
   }
 
@@ -116,12 +116,12 @@
     opacity: 0.6;
   }
   .cards__image {
-    width: 282px; /* Ajusta a imagem à largura do cartão */
+    width: 282px; /* Adjusts the image to the card width */
     height: 282px;
   }
 }
 
-/* Estilos para dispositivos móveis: até 768px */
+/* Styles for mobile devices: up to 768px */
 @media (min-width: 320px) and (max-width: 768px) {
   .cards {
     flex-direction: column;
@@ -136,11 +136,11 @@
   }
 
   .cards__image {
-    width: 300px; /* Ajusta a imagem à largura do cartão */
+    width: 300px; /* Adjusts the image to the card width */
     height: 300px;
   }
 
   .cards__title {
-    font-size: 1.25rem; /* Ajusta o tamanho da fonte para telas menores */
+    font-size: 1.25rem; /* Adjusts the font size for smaller screens */
   }
 }

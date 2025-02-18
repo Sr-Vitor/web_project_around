@@ -11,14 +11,14 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Imagem ampliada no popup */
+/* Enlarged image in the popup */
 .popup__image-large {
   max-width: 75vw;
   max-height: 75vh;
-  object-fit: contain; /* Mantém a proporção da imagem */
+  object-fit: contain; /* Maintains the image proportion */
   margin: 10px 0;
   padding: 0;
-  border-radius: 10px; /* Bordas arredondadas para combinar com o contêiner */
+  border-radius: 10px; /* Rounded borders to match the container */
 }
 
 .popup__image_close {
@@ -111,7 +111,7 @@
     font-size: 26px;
     position: absolute;
   }
-  /* Input do formulário */
+  /* Form input */
   .popup__input {
     border: none;
     width: 100%;
@@ -124,7 +124,7 @@
     box-sizing: border-box;
   }
 
-  /* Mensagem de erro abaixo dos inputs */
+  /* Error message below inputs */
   .popup__error {
     color: red;
     font-size: 1rem;
@@ -132,12 +132,12 @@
     display: none;
   }
 
-  /* Mensagem de erro visível */
+  /* Visible error message */
   .popup__error_visible {
     display: block;
   }
 
-  /* Botão de envio */
+  /* Submit button */
   .popup__submit {
     margin-top: 1.5rem;
     width: 100%;
@@ -152,7 +152,7 @@
     text-align: center;
   }
 }
-/* Estilo responsivo para telas maiores que 2100px */
+/* Responsive style for screens larger than 2100px */
 @media (min-width: 2101px) and (max-width: 2400px) {
   .popup__container {
     width: 30%;
@@ -192,7 +192,7 @@
   }
 }
 
-/* Responsividade */
+/* Responsiveness */
 
 @media (max-width: 2100px) and (min-width: 1800px) {
   .popup__container {
@@ -232,7 +232,7 @@
   }
 }
 
-/* Estilo responsivo para telas de 1799px a 1600px */
+/* Responsive style for screens from 1799px to 1600px */
 
 @media (max-width: 1799px) and (min-width: 1600px) {
   .popup__container {
@@ -272,7 +272,7 @@
   }
 }
 
-/* Estilo responsivo para telas de 1599px a 1400px */
+/* Responsive style for screens from 1599px to 1400px */
 
 @media (max-width: 1599px) and (min-width: 1400px) {
   .popup__container {
@@ -312,7 +312,7 @@
   }
 }
 
-/* Estilo responsivo para telas de 1399px a 1200px */
+/* Responsive style for screens from 1399px to 1200px */
 
 @media (max-width: 1399px) and (min-width: 1203px) {
   .popup__container {
@@ -391,7 +391,7 @@
   }
 }
 
-/* Estilo responsivo para telas de 900px a 768px */
+/* Responsive style for screens from 900px to 768px */
 @media (max-width: 913px) and (min-width: 768px) {
   .popup__container_large {
     max-width: 85vw;

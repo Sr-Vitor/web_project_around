@@ -1,18 +1,18 @@
-/* Garantindo que o popup fique acima dos ícones de lixeira */
+/* Ensuring the popup is above the trash icons */
 .popup {
-  display: none; /* Oculto por padrão */
+  display: none; /* Hidden by default */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro */
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background */
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Garantindo que esteja acima de outros elementos */
+  z-index: 1000; /* Ensuring it is above other elements */
 }
 
-/* Container do popup */
+/* Popup container */
 .popup__container {
   width: 26.875rem;
   max-height: 90vh;
@@ -26,7 +26,7 @@
   justify-content: center;
 }
 
-/* Título do popup */
+/* Popup title */
 .popup__title {
   color: #000;
   font-size: 1.5rem;
@@ -35,7 +35,7 @@
   text-align: center;
 }
 
-/* Input do formulário */
+/* Form input */
 .popup__input {
   border: none;
   width: 100%;
@@ -48,7 +48,7 @@
   box-sizing: border-box;
 }
 
-/* Mensagem de erro abaixo dos inputs */
+/* Error message below inputs */
 .popup__error {
   color: red;
   font-size: 0.75rem;
@@ -56,12 +56,12 @@
   display: none;
 }
 
-/* Mensagem de erro visível */
+/* Visible error message */
 .popup__error_visible {
   display: block;
 }
 
-/* Botão de envio */
+/* Submit button */
 .popup__submit {
   margin-top: 1.5rem;
   width: 100%;
@@ -76,38 +76,37 @@
   text-align: center;
 }
 
-/* Botão de envio desabilitado */
+/* Disabled submit button */
 .popup__submit_disabled {
   background-color: #fff;
   background-color: #ccc;
   cursor: not-allowed;
 }
 
-/* Botão de fechar o popup */
-
+/* Close popup button */
 .popup__close:hover {
   opacity: 0.8;
 }
 
-/* Popup de adicionar novo cartão */
+/* Add new card popup */
 .popup_add {
   display: none;
   z-index: 1000;
 }
 
 .popup_opened {
-  display: flex; /* Mostra o popup quando está aberto */
+  display: flex; /* Shows the popup when it is open */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro fora do popup */
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background outside the popup */
   justify-content: center;
   align-items: center;
 }
 
-/* Contêiner do popup */
+/* Popup container */
 .popup__close {
   position: absolute;
   top: -40px;

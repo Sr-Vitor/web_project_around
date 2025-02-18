@@ -6,7 +6,7 @@ export default class Section {
     if (typeof containerSelector === "string") {
       this._container = document.querySelector(containerSelector);
     } else {
-      console.error("containerSelector precisa ser um seletor CSS (string).");
+      console.error("containerSelector needs to be a CSS selector (string).");
     }
   }
 
