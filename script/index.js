@@ -5,101 +5,115 @@ import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "./UserInfo.js";
 
-// Validation configuration
-const validationConfig = {
-  formSelector: ".popup__container",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__submit",
-  inactiveButtonClass: "popup__submit_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-};
+document.addEventListener("DOMContentLoaded", () => {
+  const validationConfig = {
+    formSelector: ".popup__container",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__submit",
+    inactiveButtonClass: "popup__submit_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible",
+  };
 
-// **DOM ELEMENTS**
-const editPopupElement = document
-  .querySelector("#edit-profile-form")
-  .closest(".popup");
-const addPopupElement = document
-  .querySelector("#add-location-form")
-  .closest(".popup");
-const profileNameElement = document.querySelector(".profile__name");
-const profileAboutElement = document.querySelector(".profile__about");
-const popupNameInput = document.querySelector("#profile-name");
-const popupAboutInput = document.querySelector("#profile-about");
-const titleInput = document.querySelector("#location-title");
-const imageLinkInput = document.querySelector("#location-url");
-const editButton = document.querySelector(".profile__edit-button");
-const addButton = document.querySelector(".profile__add-button");
-const cardsContainerSelector = ".cards";
+  const editPopup = document
+    .querySelector("#edit-profile-form")
+    .closest(".popup");
+  const addPopup = document
+    .querySelector("#add-location-form")
+    .closest(".popup");
+  const editForm = document.querySelector("#edit-profile-form");
+  const addForm = document.querySelector("#add-location-form");
 
-// **INITIAL CARDS ARRAY**
-const cardsData = [
-  { title: "Minneapolis, MN", imageLink: "./images/image1.jpeg" },
-  { title: "Hollywood, CA", imageLink: "./images/image2.jpeg" },
-  { title: "Golden Gate Bridge", imageLink: "./images/image3.jpeg" },
-  { title: "Las Vegas", imageLink: "./images/image4.jpeg" },
-  { title: "Miami", imageLink: "./images/image5.jpeg" },
-  { title: "New York", imageLink: "./images/image6.jpeg" },
-];
+  const profileName = document.querySelector(".profile__name");
+  const profileAbout = document.querySelector(".profile__about");
+  const popupNameInput = document.querySelector("#profile-name");
+  const popupAboutInput = document.querySelector("#profile-about");
 
-// **INSTANTIATING CLASSES**
-const userInfo = new UserInfo({
-  nameSelector: ".profile__name",
-  aboutSelector: ".profile__about",
-});
+  const titleInput = document.querySelector("#location-title");
+  const imageLinkInput = document.querySelector("#location-url");
 
-// Creating the image popup
-const imagePopup = new PopupWithImage(".popup_type_image");
-imagePopup.setEventListeners();
+  const editButton = document.querySelector(".profile__edit-button");
+  const addButton = document.querySelector(".profile__add-button");
+  const editPopupCloseButton = editPopup.querySelector(".popup__close");
+  const addPopupCloseButton = addPopup.querySelector(".popup__close");
 
-// Creating the image gallery
-const section = new Section(
-  {
-    items: cardsData,
-    renderer: (item) => {
-      const card = new Card(item, "#card-template", (imageLink, title) => {
-        imagePopup.open(imageLink, title);
-      });
-      section.addItem(card.generateCard());
-    },
-  },
-  cardsContainerSelector
-);
+  const cardsContainerSelector = ".cards";
+  const templateSelector = "#card-template";
 
-section.renderItems();
+  const cardsData = [
+    { title: "Minneapolis, MN", imageLink: "./images/image1.jpeg" },
+    { title: "Hollywood, CA", imageLink: "./images/image2.jpeg" },
+    { title: "Golden Gate Bridge", imageLink: "./images/image3.jpeg" },
+    { title: "Las Vegas", imageLink: "./images/image4.jpeg" },
+    { title: "Miami", imageLink: "./images/image5.jpeg" },
+    { title: "New York", imageLink: "./images/image6.jpeg" },
+  ];
 
-// Creating the profile edit popup
-const editPopup = new PopupWithForm(".popup", (formData) => {
-  userInfo.setUserInfo(formData);
-  editPopup.close();
-});
-editPopup.setEventListeners();
+  // Popup com Imagem
+  const imagePopup = new PopupWithImage(".popup_type_image");
+  imagePopup.setEventListeners();
 
-// Creating the card addition popup
-const addPopup = new PopupWithForm(".popup_add", (formData) => {
-  const card = new Card(formData, "#card-template", (imageLink, title) => {
+  function handleCardClick(imageLink, title) {
     imagePopup.open(imageLink, title);
+  }
+
+  function createCard(data) {
+    const card = new Card(data, templateSelector, handleCardClick);
+    return card.generateCard();
+  }
+
+  const cardSection = new Section(
+    {
+      items: cardsData,
+      renderer: (item) => {
+        const cardElement = createCard(item);
+        cardSection.addItem(cardElement);
+      },
+    },
+    cardsContainerSelector
+  );
+
+  cardSection.renderItems();
+
+  editButton.addEventListener("click", () => {
+    popupNameInput.value = profileName.textContent;
+    popupAboutInput.value = profileAbout.textContent;
+    editPopup.classList.add("popup_opened");
   });
-  section.addItem(card.generateCard());
-  addPopup.close();
+
+  addButton.addEventListener("click", () => {
+    addPopup.classList.add("popup_opened");
+  });
+
+  editPopupCloseButton.addEventListener("click", () =>
+    editPopup.classList.remove("popup_opened")
+  );
+  addPopupCloseButton.addEventListener("click", () =>
+    addPopup.classList.remove("popup_opened")
+  );
+
+  editForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    profileName.textContent = popupNameInput.value;
+    profileAbout.textContent = popupAboutInput.value;
+    editPopup.classList.remove("popup_opened");
+  });
+
+  addForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const title = titleInput.value.trim();
+    const imageLink = imageLinkInput.value.trim();
+    if (title && imageLink) {
+      const newCard = createCard({ title, imageLink });
+      cardSection.addItem(newCard);
+      addForm.reset();
+      addPopup.classList.remove("popup_opened");
+    }
+  });
+
+  const editFormValidator = new FormValidator(validationConfig, editForm);
+  const addFormValidator = new FormValidator(validationConfig, addForm);
+
+  editFormValidator.enableValidation();
+  addFormValidator.enableValidation();
 });
-addPopup.setEventListeners();
-
-// EVENTS
-editButton.addEventListener("click", () => {
-  const userData = userInfo.getUserInfo();
-  popupNameInput.value = userData.name;
-  popupAboutInput.value = userData.about;
-  editPopup.open();
-});
-
-addButton.addEventListener("click", () => {
-  addPopup.open();
-});
-
-// Enabling validation
-const editFormValidator = new FormValidator(validationConfig, editPopupElement);
-const addFormValidator = new FormValidator(validationConfig, addPopupElement);
-
-editFormValidator.enableValidation();
-addFormValidator.enableValidation();

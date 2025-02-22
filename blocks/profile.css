@@ -14,23 +14,36 @@
   border-radius: 50%;
 }
 
+.profile__name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .profile__info {
-  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+  min-width: 0;
 }
 
 .profile__name {
   color: #fff;
   margin: 0;
-  padding-right: 1rem;
   font-family: "Inter", sans-serif;
   font-size: 2.6rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 3rem; /* 114.286% */
-  display: inline;
+  line-height: 3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(
+    100% - 2.5rem
+  ); /* Garante que o botão de edição tenha espaço */
 }
-
 .profile__edit-button {
+  flex-shrink: 0;
+  margin-left: 1rem;
   background: url(../images/images__button/edit__button.webp) no-repeat center;
   background-color: transparent;
   width: 1.5rem;
@@ -38,6 +51,7 @@
   border: 1px solid #fff;
   cursor: pointer;
 }
+
 .profile__about {
   color: #fff;
   margin: 0;
@@ -47,7 +61,8 @@
   line-height: normal;
   font-weight: 400;
   overflow: hidden; /* Evita que o texto transborde */
-  text-overflow: ellipsis;
+  text-overflow: clip;
+  max-width: 70%; /* Limita a largura a 70% do container pai */
 }
 
 .profile__edit-button:hover {
@@ -55,6 +70,7 @@
 }
 
 .profile__add-button {
+  flex-shrink: 0; /* Garante que o botão não seja comprimido */
   width: 9.4rem;
   height: 3.1rem;
   background: url(../images/images__button/add__button.webp) no-repeat center;

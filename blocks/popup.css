@@ -46,6 +46,8 @@
   font-family: "Inter", sans-serif;
   font-size: 0.875rem;
   box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Error message below inputs */
