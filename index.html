@@ -25,7 +25,10 @@
 
     <main class="main">
       <section class="profile">
-        <img class="profile__avatar" src="./images/image.jpg" alt="Profile" />
+        <div class="profile__avatar-container">
+          <img class="profile__avatar" src="./images/image.jpg" alt="Profile" />
+          <div class="profile__avatar-edit-icon"></div>
+        </div>
         <div class="profile__info">
           <div class="profile__name-wrapper">
             <h1 class="profile__name">Jacques Cousteau</h1>
@@ -37,90 +40,7 @@
       </section>
 
       <section class="cards">
-        <!-- Inicial -->
-        <div class="cards__card">
-          <img class="cards__image" src="./images/image1.jpeg" alt="image-1" />
-          <div class="cards__group">
-            <h2 class="cards__title">Minneapolis, MN</h2>
-            <div class="cards__like-icon"></div>
-          </div>
-          <img
-            class="cards__trash"
-            src="./images/images__button/trash.webp"
-            alt="Delete"
-          />
-          <button class="cards__delete-icon"></button>
-        </div>
-
-        <div class="cards__card">
-          <img class="cards__image" src="./images/image2.jpeg" alt="image-2" />
-          <div class="cards__group">
-            <h2 class="cards__title">Hollywood, CA</h2>
-            <div class="cards__like-icon"></div>
-          </div>
-          <img
-            class="cards__trash"
-            src="./images/images__button/trash.webp"
-            alt="Delete"
-          />
-          <button class="cards__delete-icon"></button>
-        </div>
-
-        <div class="cards__card">
-          <img class="cards__image" src="./images/image3.jpeg" alt="image-3" />
-          <div class="cards__group">
-            <h2 class="cards__title">Golden Gate Bridge</h2>
-            <div class="cards__like-icon"></div>
-          </div>
-          <img
-            class="cards__trash"
-            src="./images/images__button/trash.webp"
-            alt="Delete"
-          />
-          <button class="cards__delete-icon"></button>
-        </div>
-
-        <div class="cards__card">
-          <img class="cards__image" src="./images/image4.jpeg" alt="image-4" />
-          <div class="cards__group">
-            <h2 class="cards__title">Las Vegas</h2>
-            <div class="cards__like-icon"></div>
-          </div>
-          <img
-            class="cards__trash"
-            src="./images/images__button/trash.webp"
-            alt="Delete"
-          />
-          <button class="cards__delete-icon"></button>
-        </div>
-
-        <div class="cards__card">
-          <img class="cards__image" src="./images/image5.jpeg" alt="image-5" />
-          <div class="cards__group">
-            <h2 class="cards__title">Miami</h2>
-            <div class="cards__like-icon"></div>
-          </div>
-          <img
-            class="cards__trash"
-            src="./images/images__button/trash.webp"
-            alt="Delete"
-          />
-          <button class="cards__delete-icon"></button>
-        </div>
-
-        <div class="cards__card">
-          <img class="cards__image" src="./images/image6.jpeg" alt="image-6" />
-          <div class="cards__group">
-            <h2 class="cards__title">New York</h2>
-            <div class="cards__like-icon"></div>
-          </div>
-          <img
-            class="cards__trash"
-            src="./images/images__button/trash.webp"
-            alt="Delete"
-          />
-          <button class="cards__delete-icon"></button>
-        </div>
+        <!-- Os cards serão inseridos dinamicamente via JavaScript -->
       </section>
     </main>
 
@@ -221,10 +141,35 @@
     </section>
     <section class="popup popup_type_image">
       <div class="popup__container_large">
-        <button type="button" class="popup__image_close"></button>
+        <button type="button" class="popup__close"></button>
         <img class="popup__image-large" src="" alt="" />
         <h2 class="popup__title"></h2>
       </div>
+    </section>
+
+    <!-- Popup de Atualizar Avatar -->
+    <section class="popup popup_update-avatar">
+      <form
+        action="#"
+        class="popup__container popup__form"
+        id="update-avatar-form"
+      >
+        <h2 class="popup__title">Alterar foto do perfil</h2>
+        <input
+          type="url"
+          class="popup__input popup__input_avatar-link"
+          id="avatar-link"
+          name="avatar"
+          placeholder="Link para nova foto"
+          required
+        />
+        <span id="avatar-link-error" class="popup__error"></span>
+
+        <button class="popup__submit popup__submit_disabled" disabled>
+          Salvar
+        </button>
+        <button class="popup__close" type="button"></button>
+      </form>
     </section>
     <script type="module" src="./script/index.js"></script>
   </body>
