@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/script/index.js", // ponto de entrada do JS
+  entry: "./script/index.js", // ponto de entrada do JS
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",
@@ -18,7 +18,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/src/index.html", // copia e insere <script> automaticamente
+      template: "./src/index.html", // copia e insere <script> automaticamente
     }),
   ],
   devServer: {
