@@ -18,7 +18,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html", // copia e insere <script> automaticamente
+      template: "./src/src/index.html", // copia e insere <script> automaticamente
     }),
   ],
   devServer: {

@@ -130,12 +130,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Cards fixos que sempre aparecem
   const fixedCards = [
-    { title: "Minneapolis, MN", imageLink: "./images/image1.jpeg" },
-    { title: "Hollywood, CA", imageLink: "./images/image2.jpeg" },
-    { title: "Golden Gate Bridge", imageLink: "./images/image3.jpeg" },
-    { title: "Las Vegas", imageLink: "./images/image4.jpeg" },
-    { title: "Miami", imageLink: "./images/image5.jpeg" },
-    { title: "New York", imageLink: "./images/image6.jpeg" },
+    { title: "Minneapolis, MN", imageLink: "../images/image1.jpeg" },
+    { title: "Hollywood, CA", imageLink: "../images/image2.jpeg" },
+    { title: "Golden Gate Bridge", imageLink: "../images/image3.jpeg" },
+    { title: "Las Vegas", imageLink: "../images/image4.jpeg" },
+    { title: "Miami", imageLink: "../images/image5.jpeg" },
+    { title: "New York", imageLink: "../images/image6.jpeg" },
   ];
 
   // Renderiza primeiro os cards fixos
