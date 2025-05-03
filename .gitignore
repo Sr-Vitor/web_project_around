@@ -1,3 +1,17 @@
 .DS_Store
 node_modules/
 dist/
+
+web_project_around/
+├── package.json
+├── package-lock.json
+├── webpack.config.js
+├── .gitignore
+├── /src
+│   ├── index.html
+│   ├── /js
+│   │   └── index.js
+│   ├── /images
+│   │   └── image1.jpeg (e outras)
+│   └── /pages
+│       └── index.css

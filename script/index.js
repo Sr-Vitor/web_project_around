@@ -5,6 +5,19 @@ import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "./UserInfo.js";
 import Api from "./Api.js";
+import "../pages/index.css";
+
+import img1 from "../images/image1.jpeg";
+import img2 from "../images/image2.jpeg";
+import img3 from "../images/image3.jpeg";
+import img4 from "../images/image4.jpeg";
+import img5 from "../images/image5.jpeg";
+import img6 from "../images/image6.jpeg";
+import logo from "../images/Vector.webp";
+import line from "../images/Line.png";
+import profileImage from "../images/image.jpg";
+import trashIcon from "../images/images__button/trash.svg";
+import closeIcon from "../images/images__button/close_button.png";
 
 const api = new Api({
   baseUrl: "https://around-api.pt-br.tripleten-services.com/v1",
@@ -15,6 +28,23 @@ const api = new Api({
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Inserção dinâmica de imagens globais
+  document.querySelector(".header__logo").src = logo;
+  document.querySelector(".header__line").src = line;
+  document.querySelector(".profile__avatar").src = profileImage;
+
+  const template = document.querySelector("#card-template");
+  const trashBtn = template.content.querySelector(".cards__trash img");
+  trashBtn.src = trashIcon;
+
+  const closeButtons = document.querySelectorAll(".popup__close");
+  closeButtons.forEach((btn) => {
+    btn.style.backgroundImage = `url(${closeIcon})`;
+    btn.style.backgroundRepeat = "no-repeat";
+    btn.style.backgroundSize = "cover";
+    btn.style.backgroundPosition = "center";
+  });
+
   const validationConfig = {
     formSelector: ".popup__container",
     inputSelector: ".popup__input",
@@ -128,23 +158,20 @@ document.addEventListener("DOMContentLoaded", () => {
     cardsContainerSelector
   );
 
-  // Cards fixos que sempre aparecem
   const fixedCards = [
-    { title: "Minneapolis, MN", imageLink: "../images/image1.jpeg" },
-    { title: "Hollywood, CA", imageLink: "../images/image2.jpeg" },
-    { title: "Golden Gate Bridge", imageLink: "../images/image3.jpeg" },
-    { title: "Las Vegas", imageLink: "../images/image4.jpeg" },
-    { title: "Miami", imageLink: "../images/image5.jpeg" },
-    { title: "New York", imageLink: "../images/image6.jpeg" },
+    { title: "Minneapolis, MN", imageLink: img1 },
+    { title: "Hollywood, CA", imageLink: img2 },
+    { title: "Golden Gate Bridge", imageLink: img3 },
+    { title: "Las Vegas", imageLink: img4 },
+    { title: "Miami", imageLink: img5 },
+    { title: "New York", imageLink: img6 },
   ];
 
-  // Renderiza primeiro os cards fixos
   fixedCards.forEach((card) => {
     const cardElement = createCard(card);
     cardSection.addItem(cardElement);
   });
 
-  // Depois os do servidor
   Promise.all([api.getUserInfo(), api.getInitialCards()])
     .then(([userData, cards]) => {
       userInfo.setUserInfo({
